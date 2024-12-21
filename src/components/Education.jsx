@@ -14,7 +14,7 @@ const Education = () => {
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Title */}
-        <h1 className="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white">
+        <h1 className="text-5xl text-center font-bold mb-12">
           Education
         </h1>
 

@@ -14,7 +14,7 @@ const Experience = () => {
     >
       <div className="container mx-auto px-6 md:px-12">
         {/* Title */}
-        <h1 className="text-4xl font-bold text-center mb-16">Experience</h1>
+        <h1 className="text-5xl font-bold text-center mb-16">Experience</h1>
 
         {/* Timeline Container */}
         <div className="relative">

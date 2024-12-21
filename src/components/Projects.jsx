@@ -1,7 +1,10 @@
 import React from "react";
 import ProjectCard from './projects/ProjectCard';
+import { useLocation } from "react-router-dom"; 
 
 const Projects = () => {
+    const location = useLocation(); // Get current route
+    const isDarkMode = document.body.classList.contains("dark");
   const projects = [
     {
         title: "Dev Portfolio",
@@ -47,12 +50,12 @@ const Projects = () => {
       image: "https://via.placeholder.com/150",
     },
     {
-      title: "MVVM Sample App",
+      title: "Book Loan Management System",
       description:
         "An Android App that loads data from mock API and shows in both LinearLayout and GridLayout RecyclerView.",
       techStack: ["Kotlin", "Android", "MVVM"],
-      githubLink: "#",
-      liveLink: null,
+      githubLink: "https://github.com/mehmoodulhaq570/Book-Loan-Management-System.git",
+      liveLink: "https://private-user-images.githubusercontent.com/96229333/293987595-64264b4d-b074-4bca-99f6-97becf5b2602.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ3ODM1MzIsIm5iZiI6MTczNDc4MzIzMiwicGF0aCI6Ii85NjIyOTMzMy8yOTM5ODc1OTUtNjQyNjRiNGQtYjA3NC00YmNhLTk5ZjYtOTdiZWNmNWIyNjAyLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIxVDEyMTM1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThjYzZlNzY1NjI5YjdkOTBlMzMyMzJiOTQ5NWE0MTg5Nzc2ZWFhNmQyYzFmNmNlOWIzYjVjMzNmZWI2YjdjZjImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.-11iTG9CTsVyH3rdHPdkZu7ITFqPf3YMoggmZJKUgFQ",
       image: "https://via.placeholder.com/150",
     },
     {
@@ -84,9 +87,14 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-16">
+    <div
+    className={`min-h-screen flex flex-col justify-start items-center p-8 ${
+      isDarkMode ? "bg-[#111827] text-white" : "bg-white text-gray-900"
+    }`}
+    style={{ overflow: "hidden" }}
+  >
       <div className="container mx-auto px-6 md:px-12">
-        <h1 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+        <h1 className="text-5xl text-center font-bold mb-12">
           Projects
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
