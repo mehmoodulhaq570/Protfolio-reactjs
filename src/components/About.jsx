@@ -1,31 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation for route access
 
 const About = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Check if dark mode is applied to the body
-  useEffect(() => {
-    const bodyClass = document.body.classList;
-    const mode = bodyClass.contains("dark");
-    setIsDarkMode(mode);
-
-    // Add event listener to detect changes in theme
-    const handleThemeChange = () => {
-      setIsDarkMode(bodyClass.contains("dark"));
-    };
-
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", handleThemeChange);
-
-    return () => {
-      window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", handleThemeChange);
-    };
-  }, []);
+  const location = useLocation(); // Get current route
+  const isDarkMode = document.body.classList.contains("dark");
 
   return (
     <div
-      className={`transition-all duration-300 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
-      } flex flex-col items-center justify-center min-h-screen`}
+      className={`min-h-screen flex flex-col justify-start items-center p-8 ${
+        isDarkMode ? "bg-[#111827] text-white" : "bg-white text-gray-900"
+      }`}
+      style={{ overflow: "hidden" }}
     >
       {/* Heading */}
       <h1 className="text-5xl font-bold mb-8 text-center">About Me</h1>
