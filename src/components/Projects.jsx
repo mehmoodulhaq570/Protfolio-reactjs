@@ -1,9 +1,7 @@
 import React from "react";
 import ProjectCard from './projects/ProjectCard';
-import { useLocation } from "react-router-dom"; 
 
 const Projects = () => {
-    const location = useLocation(); // Get current route
     const isDarkMode = document.body.classList.contains("dark");
   const projects = [
     {

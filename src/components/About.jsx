@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom"; // Import useLocation for route access
+import React from "react";
 
 const About = () => {
-  const location = useLocation(); // Get current route
   const isDarkMode = document.body.classList.contains("dark");
 
   return (

@@ -1,8 +1,6 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 
 const Resume = () => {
-  const location = useLocation(); // Get current route
   const isDarkMode = document.body.classList.contains("dark");
   const googleDriveLink = "https://drive.google.com/file/d/1Z2bWyoo65ET9V7XQSX0N0tAwy7N-T0YL/view?usp=sharing"; // Updated Google Drive file link
 

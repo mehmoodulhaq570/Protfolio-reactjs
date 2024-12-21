@@ -1,8 +1,6 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 
 const Education = () => {
-  const location = useLocation(); // Get current route
   const isDarkMode = document.body.classList.contains("dark");
 
   return (

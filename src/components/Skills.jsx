@@ -12,10 +12,8 @@ import {
   FaCode,
 } from "react-icons/fa";
 import { SiScikitlearn, SiTensorflow, SiKeras, SiDocker, SiPycharm } from "react-icons/si";
-import { useLocation } from "react-router-dom";
 
 const Skills = () => {
-  const location = useLocation(); // Get current route
   const isDarkMode = document.body.classList.contains("dark");
 
   return (
