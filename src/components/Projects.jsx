@@ -19,71 +19,121 @@ const Projects = () => {
         techStack: ["React", "Portfolio", "JavaScript"],
         githubLink: "https://github.com/mehmoodulhaq570/Protfolio-reactjs.git",
         liveLink: "#",
-        image: "https://via.placeholder.com/150", // Replace with your image URL
+        image: "/images/react-portfolio.png",
       },
       
     {
       title: "Jarvis Google Assistant",
-      description:
-        "A Cab Sharing web app made using Django for VIT Students. Added user authentication and password reset using SendGrid.",
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>Voice-activated AI assistant developed in Python.</li>
+          <li>Includes voice recognition and password protection.</li>
+          <li>Detailed explanations and code documentation.</li>
+        </ul>
+      ),
       techStack: ["Python", "GUI and Widgets", "Speech Recognition", "Text-to-Speech"],
       githubLink: "https://github.com/mehmoodulhaq570/Jarvis-Google-Assistant-Project.git",
       liveLink: "#",
-      image: "https://via.placeholder.com/150",
+      image: "/images/jarvis.jpeg",
     },
     {
       title: "AI Language Detector and Translator",
-      description:
-        "An Android App that automatically silences your phone during class hours, designed for VITians.",
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>Detects and translates languages like English, French, and Urdu.</li>
+          <li>Uses Naive Bayes and diverse datasets.</li>
+          <li>Includes model documentation and testing results.</li>
+        </ul>
+      ),
       techStack: ["Java", "Android", "Alarm Manager"],
       githubLink: "https://github.com/mehmoodulhaq570/AI-Language-Detector-and-Translator.git",
-      liveLink: "https://private-user-images.githubusercontent.com/96229333/306727341-128d68d9-1ae0-4b22-bd7d-056235406f27.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ3ODMxMDgsIm5iZiI6MTczNDc4MjgwOCwicGF0aCI6Ii85NjIyOTMzMy8zMDY3MjczNDEtMTI4ZDY4ZDktMWFlMC00YjIyLWJkN2QtMDU2MjM1NDA2ZjI3Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIxVDEyMDY0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJmMWMxNDlmYjAzNDMzMjA4OWY1MjdiMGZmNzVjYzc1Y2RhZjBiMjM5YTM5NTk4OThkMTFkNjMxNzk0ZWEwMGYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.TI7WuwrkEZfv5N7PmZIqZmk8FbsRSg1tj3mPkpNEUYM",
-      image: "https://via.placeholder.com/150",
+      liveLink: "#",
+      image: "/images/translator.jpg",
     },
     {
       title: "Air Quality Monitoring System",
-      description:
-        "An Android App that allows users to send texts in real-time. End-to-End encryption using RSA Algorithm.",
-      techStack: ["Arduino-UNO", "IoT", "FirAebase", "RSA"],
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>IoT-based system to analyze pollution levels.</li>
+          <li>Measures pollutants with real-time updates.</li>
+          <li>Establishes monitoring stations for air quality.</li>
+        </ul>
+      ),
+      techStack: ["Arduino-UNO", "IoT", "MQ-135 Sensor"],
       githubLink: "https://github.com/mehmoodulhaq570/Air-Quality-Monitring-System.git",
       liveLink: null,
-      image: "https://via.placeholder.com/150",
+      image: "/images/air-quality.jpg",       
     },
     {
       title: "Book Loan Management System",
-      description:
-        "An Android App that loads data from mock API and shows in both LinearLayout and GridLayout RecyclerView.",
-      techStack: ["Kotlin", "Android", "MVVM"],
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>Manages library data with SQL Server backend.</li>
+          <li>Handles authors, categories, and loan statuses.</li>
+          <li>Tracks book loans and returns efficiently.</li>
+        </ul>
+      ),
+      techStack: ["SQL", ".NET", "Management System", "C#"],
       githubLink: "https://github.com/mehmoodulhaq570/Book-Loan-Management-System.git",
-      liveLink: "https://private-user-images.githubusercontent.com/96229333/293987595-64264b4d-b074-4bca-99f6-97becf5b2602.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ3ODM1MzIsIm5iZiI6MTczNDc4MzIzMiwicGF0aCI6Ii85NjIyOTMzMy8yOTM5ODc1OTUtNjQyNjRiNGQtYjA3NC00YmNhLTk5ZjYtOTdiZWNmNWIyNjAyLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIxVDEyMTM1MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThjYzZlNzY1NjI5YjdkOTBlMzMyMzJiOTQ5NWE0MTg5Nzc2ZWFhNmQyYzFmNmNlOWIzYjVjMzNmZWI2YjdjZjImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.-11iTG9CTsVyH3rdHPdkZu7ITFqPf3YMoggmZJKUgFQ",
-      image: "https://via.placeholder.com/150",
+      liveLink: "#",
+      image: "/images/book-loan.png",
+    },  
+    {
+      title: "SpotiStream",
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>Python tool to download songs from Spotify playlists.</li>
+          <li>Supports multiple input methods like CSV and TXT.</li>
+          <li>Auto-saves credentials and handles errors.</li>
+        </ul>
+      ),
+      techStack: ["Downloader", "Package", "Music", "Python"],
+      githubLink: "https://github.com/mehmoodulhaq570/SpotiStream.git",
+      liveLink: null,
+      image: "/images/spotistream.jpg",
     },
     {
-      title: "Feed List App",
-      description:
-        "An Android App that loads list of feeds from a paginated API and shows in a RecyclerView.",
-      techStack: ["Kotlin", "Android", "MVVM", "Paging 3"],
-      githubLink: "#",
+      title: "DioHunter",
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>Downloads research papers using DOIs or titles.</li>
+          <li>Supports batch downloads via Crossref and Sci-Hub.</li>
+          <li>Simplifies research tasks for efficiency.</li>
+        </ul>
+      ),      
+      techStack: ["Python", "Package", "Paper-Downloader", "CLI"],
+      githubLink: "https://github.com/mehmoodulhaq570/doi_hunter.git",
       liveLink: null,
-      image: "https://via.placeholder.com/150",
+      image: "/images/doihunter.png",
     },
     {
-      title: "Task Tracker",
-      description: "A simple Task Tracker web app made using Angular 12.",
-      techStack: ["Angular", "Web"],
-      githubLink: "#",
+      title: "Potato Disease Classification",
+      description: (
+        <ul className="list-disc pl-5 space-y-0 text-gray-700">
+          <li>Classifies potato diseases using CNNs.</li>
+          <li>Achieves 100% accuracy with 6 CNN layers.</li>
+          <li>Uses Adam optimizer and softmax activation.</li>
+        </ul>
+      ),      
+      techStack: ["Python", "Deep Learning", "TensorFlow", "Keras"],
+      githubLink: "https://github.com/mehmoodulhaq570/Potato-Disease-Classification-using-Deep-Learning.git",
       liveLink: null,
-      image: "https://via.placeholder.com/150",
+      image: "/images/potato-disease.jpg",
     },
     {
-      title: "Image Encryption/Decryption",
-      description:
-        "A Web App for Image Encryption and Decryption made in Django.",
-      techStack: ["Python", "Django"],
-      githubLink: "#",
-      liveLink: null,
-      image: "https://via.placeholder.com/150",
-    },
+        title: "Banglore Home Price Prediction",
+        description: (
+            <ul className="list-disc pl-5 space-y-0 text-gray-700">
+              <li>Predicts Bangalore home prices using ML models.</li>
+              <li>Uses PCA, K-Fold CV, and Grid Search CV.</li>
+              <li>Exports the final model in pickle format.</li>
+            </ul>
+          ), 
+        techStack: ["Python", "Machine Learning", "Scikit-Learn", "Pandas"],
+        githubLink: "https://github.com/mehmoodulhaq570/Banglore-Home-Price-Prediction-Project.git",
+        liveLink: null,
+        image: "/images/house-price.jpg",
+      },
   ];
 
   return (
