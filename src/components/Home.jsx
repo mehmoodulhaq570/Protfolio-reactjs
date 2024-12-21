@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import { Route, Routes } from "react-router-dom";
 
@@ -7,7 +7,7 @@ const Portfolio = () => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isRemoving, setIsRemoving] = useState(false);
 
-  const phrases = ["Computer Engineer", "Developer", "Researcher"];
+  const phrases = useMemo(() => ["Computer Engineer", "Developer", "Researcher"], []);
   const staticText = "I'm a";
 
   useEffect(() => {
