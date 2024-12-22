@@ -3,12 +3,7 @@
 This portfolio is a dynamic and interactive web application built using **React.js** and styled with the power of **Tailwind CSS**. It serves as a personal showcase of my professional skills, achievements, and experiences, designed to make a lasting impression on viewers.
 
 
-
-https://github.com/user-attachments/assets/3ac84803-ec86-432c-b179-76a655a66792
-
 ![portfolio recording](https://github.com/user-attachments/assets/34bd571d-eb18-4092-89ff-908690a4e2a1)
-
-
 
 
 ## 🌐 Live Demo
