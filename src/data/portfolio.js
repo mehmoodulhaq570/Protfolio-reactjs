@@ -95,13 +95,14 @@ export const projects = [
     technologies: ['YOLOv11n', 'Raspberry Pi 5', 'OpenCV', 'Deep learning'], github: 'https://github.com/mehmoodulhaq570/Smart-Fire-System' },
 ];
 export const skills = [
-  { title: 'Programming', items: ['Python', 'C#', 'C++', 'JavaScript', 'HTML', 'CSS', 'SQL'] },
-  { title: 'Machine learning & vision', items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV', 'Forecasting', 'SHAP'] },
-  { title: 'Generative AI & NLP', items: ['LLMs', 'RAG', 'Prompt engineering', 'Hugging Face Transformers', 'LangChain', 'SBERT', 'FAISS', 'ChromaDB'] },
-  { title: 'Data & experimentation', items: ['Pandas', 'NumPy', 'Plotly', 'Feature engineering', 'Model evaluation', 'MLflow'] },
-  { title: 'Application development', items: ['FastAPI', 'Flask', 'React', 'MySQL', 'Git / GitHub'] },
-  { title: 'Cloud & development tools', items: ['AWS', 'Visual Studio', 'VS Code', 'PyCharm', 'Google Colab', 'Canva'] },
-  { title: 'Collaboration', items: ['Leadership', 'Written & verbal communication', 'Problem-solving', 'Teamwork', 'Organization', 'Attention to detail', 'Time management'] },
+  { title: 'Languages & Databases', items: ['Python', 'C#', 'C++', 'JavaScript', 'HTML', 'CSS', 'SQL', 'MySQL'] },
+  { title: 'AI/ML & Data', items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV', 'Pandas', 'NumPy', 'Plotly', 'MLflow'] },
+  { title: 'Frameworks & Development', items: ['FastAPI', 'Flask', 'React', 'Hugging Face Transformers', 'LangChain', 'FAISS', 'ChromaDB'] },
+  { title: 'Tools & Platforms', items: ['AWS', 'Git / GitHub', 'Visual Studio', 'VS Code', 'PyCharm', 'Google Colab'] },
+];
+export const additionalSkills = [
+  { title: 'AI & Data Expertise', items: ['Forecasting', 'SHAP', 'LLMs', 'RAG', 'Prompt engineering', 'SBERT', 'Feature engineering', 'Model evaluation'] },
+  { title: 'Professional Strengths', items: ['Leadership', 'Written & verbal communication', 'Problem-solving', 'Teamwork', 'Organization', 'Attention to detail', 'Time management'] },
   { title: 'Languages', items: ['Urdu', 'English'] },
 ];
 export const experience = [

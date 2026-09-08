@@ -1,4 +1,4 @@
-import { profile, interests, research, publications, projects, skills, experience, education, leadership, certifications, achievements } from '../data/portfolio';
+import { profile, interests, research, publications, projects, skills, additionalSkills, experience, education, leadership, certifications, achievements } from '../data/portfolio';
 import {
   FaAward,
   FaBloggerB,
@@ -88,7 +88,6 @@ const skillItemIcons = {
   'VS Code': FaCode,
   'PyCharm': SiPycharm,
   'Google Colab': SiGooglecolab,
-  'Canva': FaCode,
   'Leadership': FaUsers,
   'Written & verbal communication': FaUsers,
   'Problem-solving': FaBrain,
@@ -125,7 +124,6 @@ const skillItemColors = {
   'AWS': 'text-orange-500',
   'PyCharm': 'text-green-600 dark:text-green-400',
   'Google Colab': 'text-orange-500',
-  'Canva': 'text-cyan-500',
 };
 
 export function ExternalLink({ href, children, className = button }) {
@@ -256,14 +254,14 @@ export function ProjectsSection() {
 
 export function SkillsSection() {
   return <Section id="skills" title="Technical Skills" subtitle="I enjoy learning new technologies and applying them across research, data science, and software engineering." wide>
-    <div className="-mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8">{skills.map(group =>
-      <section key={group.title} className="md:rounded-xl md:border md:border-gray-100 md:dark:border-gray-700 md:bg-white md:dark:bg-gray-800 md:p-6 md:shadow-lg" aria-labelledby={`skill-${group.title.replace(/\W+/g, '-').toLowerCase()}`}>
-        <h2 id={`skill-${group.title.replace(/\W+/g, '-').toLowerCase()}`} className="text-xl sm:text-2xl font-bold mb-6 text-center sm:text-left">{group.title}</h2>
-        <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-6">
+    <div className="-mt-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-12">{skills.map(group =>
+      <section key={group.title} aria-labelledby={`skill-${group.title.replace(/\W+/g, '-').toLowerCase()}`}>
+        <h2 id={`skill-${group.title.replace(/\W+/g, '-').toLowerCase()}`} className="text-xl sm:text-2xl font-bold mb-7 text-center">{group.title}</h2>
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-6">
           {group.items.map(item => {
             const ItemIcon = skillItemIcons[item] || FaCode;
             const iconColor = skillItemColors[item] || 'text-blue-600 dark:text-blue-300';
-            return <div key={item} className="flex w-[82px] sm:w-[92px] flex-col items-center text-center">
+            return <div key={item} className="flex w-[82px] sm:w-[76px] flex-col items-center text-center">
               <ItemIcon className={`${iconColor} text-4xl`} aria-hidden="true" />
               <span className="mt-2.5 text-xs sm:text-sm leading-tight text-gray-700 dark:text-gray-200">{item}</span>
             </div>;
@@ -271,6 +269,17 @@ export function SkillsSection() {
         </div>
       </section>
     )}</div>
+    <section className="mt-14 border-t border-gray-200 dark:border-gray-700 pt-10" aria-labelledby="additional-expertise-title">
+      <h2 id="additional-expertise-title" className="text-2xl sm:text-3xl font-bold text-center mb-8">Additional Expertise</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {additionalSkills.map(group => <div key={group.title} className="text-center">
+          <h3 className="text-lg font-bold text-blue-600 dark:text-blue-300 mb-4">{group.title}</h3>
+          <div className="flex flex-wrap justify-center gap-2">
+            {group.items.map(item => <span key={item} className="rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-3 py-1.5 text-sm text-gray-700 dark:text-gray-200">{item}</span>)}
+          </div>
+        </div>)}
+      </div>
+    </section>
   </Section>;
 }
 
