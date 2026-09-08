@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { profile } from '../data/portfolio';
 import { ExternalLink, AchievementsSection, AboutSection, InterestsSection, ResearchSection, ProjectsSection, SkillsSection, ExperienceSection, EducationSection, CommunitySection, CertificationsSection, ResumeSection, ContactSection } from './PortfolioSections';
 

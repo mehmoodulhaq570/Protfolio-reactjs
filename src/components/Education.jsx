@@ -1,1 +1,1 @@
-﻿export { EducationSection as default } from './PortfolioSections';
+export { EducationSection as default } from './PortfolioSections';
