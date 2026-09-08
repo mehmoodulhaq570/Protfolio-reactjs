@@ -1,77 +1,12 @@
-import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FaSun, FaMoon } from "react-icons/fa";
-import { useDarkMode } from "../context/DarkModeProvider"; // Import the useDarkMode hook
+﻿import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useDarkMode } from '../context/DarkModeProvider';
 
-const NavigationBar = () => {
-  const { darkMode, toggleDarkMode } = useDarkMode(); // Access dark mode state and toggle function from context
-  const location = useLocation();
-
-  // Ensure the correct theme is applied on load (may be handled by context now)
-  useEffect(() => {
-    document.body.classList.toggle("dark", darkMode); // Apply dark mode class to the body
-  }, [darkMode]);
-
-  // Navigation links
-  const links = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Skills", path: "/skills" },
-    { name: "Education", path: "/education" },
-    { name: "Experience", path: "/experience" },
-    { name: "Projects", path: "/projects" },
-    { name: "Resume", path: "/resume" },
-  ];
-
-  return (
-    <header className="fixed top-0 w-full z-10 px-6 py-4 bg-black text-white shadow-lg">
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
-        {/* Navigation Links */}
-        <nav className="flex space-x-8 text-lg font-semibold">
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`${
-                location.pathname === link.path
-                  ? "border-b-2 border-blue-500"
-                  : ""
-              } hover:text-blue-500 transition-all duration-300 pb-1`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Day/Night Toggle */}
-        <div className="relative flex items-center">
-          <button
-            onClick={toggleDarkMode}
-            className={`relative flex items-center justify-between ${
-              darkMode
-                ? "bg-gradient-to-r from-blue-900 to-gray-700"
-                : "bg-gradient-to-r from-yellow-300 to-yellow-500"
-            } rounded-full w-16 h-7 p-1 transition-all duration-500 cursor-pointer`} // Adjusted height here
-          >
-            {/* Circle Button */}
-            <div
-              className={`w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 transform ${
-                darkMode ? "translate-x-8" : "translate-x-0"
-              }`} // Circle size remains unchanged
-            />
-
-            {/* Sun and Moon Icons */}
-            <div className="absolute left-1 flex items-center space-x-2 text-yellow-500 opacity-100 transition-opacity duration-300">
-              <FaSun size={16} />
-            </div>
-            <div className="absolute right-1 flex items-center space-x-2 text-blue-500 opacity-100 transition-opacity duration-300">
-              <FaMoon size={16} />
-            </div>
-          </button>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-export default NavigationBar;
+export default function NavigationBar() {
+  const [open, setOpen] = useState(false);
+  const { darkMode, toggleDarkMode } = useDarkMode();
+  const { pathname, hash } = useLocation();
+  useEffect(() => { setOpen(false); }, [pathname, hash]);
+  const links = [['About', 'about'], ['Research', 'research'], ['Projects', 'projects'], ['Experience', 'experience'], ['Contact', 'contact']];
+  return <header className="site-header"><div className="header-inner"><Link to="/" className="brand" aria-label="Mehmood Ul Haq home">MH<span>.</span></Link><nav id="main-navigation" className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Main navigation">{links.map(([label, id]) => <Link key={id} to={`/#${id}`} aria-current={hash === `#${id}` || pathname === `/${id}` ? 'location' : undefined} onClick={() => setOpen(false)}>{label}</Link>)}<Link to="/resume" className="nav-cv">CV <span aria-hidden="true">↗</span></Link></nav><div className="header-actions"><button className="icon-button" onClick={toggleDarkMode} aria-label={darkMode ? 'Switch to light theme' : 'Switch to dark theme'} aria-pressed={darkMode}>{darkMode ? '☀' : '☾'}</button><button className="menu-button" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}</button></div></div></header>;
+}

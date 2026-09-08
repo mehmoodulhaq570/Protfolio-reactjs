@@ -1,11 +1,4 @@
-import React from "react";
-
-const Footer = () => {
-  return (
-    <footer className="bg-gray-800 text-white p-4 text-center">
-      © 2024 Mehmood Ul Haq. All rights reserved.
-    </footer>
-  );
-};
-
-export default Footer;
+﻿import { Link } from 'react-router-dom';
+export default function Footer() {
+  return <footer className="site-footer"><Link className="brand" to="/">MH<span>.</span></Link><p>© {new Date().getFullYear()} Mehmood Ul Haq</p><Link to="/#contact">Research. Build. Collaborate. ↗</Link></footer>;
+}

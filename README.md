@@ -1,56 +1,49 @@
-# React.js Portfolio
+﻿# Mehmood Ul Haq — Research & Engineering Portfolio
 
-This portfolio is a dynamic and interactive web application built using **React.js** and styled with the power of **Tailwind CSS**. It serves as a personal showcase of my professional skills, achievements, and experiences, designed to make a lasting impression on viewers.
+A portfolio built with React, Vite, Tailwind CSS 3, and React Router, focused on AI/ML research, data science, and computer engineering.
 
+## Run locally
 
-![portfolio recording](https://github.com/user-attachments/assets/34bd571d-eb18-4092-89ff-908690a4e2a1)
+Use Node.js matching `^20.19.0 || >=22.12.0` (the installed Node.js 22.20.0 works).
 
+```sh
+npm install
+npm run dev
+```
 
-## 🌐 Live Demo
-Experience the portfolio in action:  
-[**View Portfolio on Netlify**](https://mehmoodulhaq570.netlify.app/)
+Open the URL printed in the terminal (normally http://localhost:5173).
+`npm start` also starts Vite. Press Ctrl+C to stop it.
+If PowerShell blocks `npm.ps1`, use `npm.cmd install` and `npm.cmd run dev`.
 
----
+## Build and preview
 
-## Key Features
+```sh
+npm run build
+npm run preview
+```
 
-### 1. Homepage
-- A welcoming landing page featuring my name prominently.
-- Quick access links to my **LinkedIn**, **GitHub**, and **email** for seamless communication.
+The production output is `dist/`. Netlify build settings and the React Router fallback are in `netlify.toml`. Other static hosts must serve `index.html` for application routes such as `/projects`.
 
-### 2. About Page
-- A personal section offering insights into my journey, aspirations, and philosophy, giving visitors a glimpse of the person behind the skills.
+## Content and structure
 
-### 3. Skills Section
-- A dedicated area showcasing my technical proficiencies, including:
-  - **Languages:** Python, Java, C, SQL
-  - **Frameworks & Technologies:** React, Node.js, TensorFlow, Scikit-Learn, Keras
-  - **Tools & Platforms:** AWS, Docker, Git, GitHub
+- `src/data/portfolio.js`: profile, research interests, research work, publications, featured projects, skills, experience, education, leadership, and certifications.
+- `src/components/PortfolioSections.jsx`: shared section layouts used on the homepage and dedicated pages.
+- `src/components/Home.jsx`: introduction and complete portfolio overview.
+- `src/components/Navigationbar.jsx`: responsive navigation and theme toggle.
+- `src/context/DarkModeProvider.jsx`: persistent light/dark theme.
+- `src/App.jsx`: routes, page titles, and anchor scrolling.
+- `src/index.css`: responsive visual design and Tailwind directives.
+- `public/images/`: original portrait and project assets.
+- `CONTENT_NEEDED.md`: details still needed to complete the content.
 
-### 4. Education Page
-- Lists academic achievements with institution names, degrees, grades, and relevant timelines to provide a clear snapshot of my educational background.
+Existing routes (`/about`, `/skills`, `/education`, `/experience`, `/projects`, `/resume`) remain available. Added `/research`, `/interests`, and `/contact`.
 
-### 5. Experience Page
-- Outlines professional experiences, roles, responsibilities, and accomplishments, demonstrating my growth and contributions in various capacities.
+Published papers, manuscripts under review, and work in progress are grouped separately. Six certifications and the PAPAAM award are included. Add confirmed leadership records to display the community section. Add `profile.scholar` to display Google Scholar. The supplied professional CV, KICS experience letter, and certificate documents are linked from the appropriate sections. Ensure their Google Drive sharing settings allow visitors to view them.
 
-### 6. Projects Page
-- Highlights my technical expertise through detailed descriptions of my projects, including:
-  - Technologies used
-  - Challenges tackled
-  - Outcomes achieved
+The website deliberately avoids unverified credentials or numerical performance claims. Project outcomes currently describe implemented functionality.
 
-### 7. Resume Page
-- A structured and comprehensive layout showcasing my qualifications, skills, and expertise in an easy-to-read format.
+## Validation
 
----
+Production build verified. Browser smoke checks cover the homepage, six featured projects, mobile navigation and anchor scrolling, theme persistence, dedicated routes, horizontal overflow at desktop/mobile sizes, and runtime exceptions.
 
-## Unique Functionalities
-- **Day and Night Mode:**  
-  A customizable feature that allows users to switch between light and dark themes for better accessibility and an enhanced user experience.
-
-- **Tailwind CSS Integration:**  
-  Responsive and modern design elements ensure the portfolio looks exceptional across all devices, from desktops to smartphones.
-
----
-
-This project reflects my ability to create visually appealing, accessible, and content-rich web applications tailored for professional engagement. Explore the portfolio live on Netlify and experience the seamless design firsthand!
+No automated test runner is configured. The unused Create React App starter test and metrics helper were removed during the Vite migration.
