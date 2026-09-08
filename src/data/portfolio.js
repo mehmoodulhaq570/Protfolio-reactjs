@@ -14,6 +14,7 @@
   medium: 'https://medium.com/@mehmoodulhaq570',
   lightningAi: 'https://lightning.ai/mehmoodulhaq570',
   devTo: 'https://dev.to/mehmoodulhaq570',
+  readersHub: 'https://readershubsite.blogspot.com',
 };
 export const interests = [
   { title: 'AI & Predictive Analytics', detail: 'Machine learning for forecasting, decision support, and practical engineering problems.' },
@@ -47,7 +48,9 @@ export const leadership = [
   { role: 'Event Volunteer', organization: 'AWS community events', dates: 'Volunteer service', description: 'Volunteered at AWS events with Sumama Zaeed and other volunteers from Systems Limited and Tkxel.' },
 ];
 export const achievements = [
-  { title: '1st Position — PAPAAM Engineering Innovation Award', organization: 'AutoShow Pakistan · 2024', url: 'https://drive.google.com/file/d/1lX-usz_0zoHYNnnHPChDMdaHnnNQ-bOS/view?usp=sharing', description: 'Developed machine-learning models for fatigue-strength prediction of 4140 alloy steel, achieving high predictive accuracy.' },
+  { title: '1st Position — PAPAAM Engineering Innovation Award', organization: 'AutoShow Pakistan · 2024', badge: '1st', url: 'https://drive.google.com/file/d/1lX-usz_0zoHYNnnHPChDMdaHnnNQ-bOS/view?usp=sharing', description: 'Developed machine-learning models for fatigue-strength prediction of 4140 alloy steel, achieving high predictive accuracy.' },
+  { title: 'International Research Collaboration with DFKI Germany', organization: 'Data Science Lab, KICS · DFKI Germany', badge: 'INTL', description: 'Contributed to AI and solar forecasting research projects conducted in collaboration with DFKI Germany, focusing on machine learning, predictive analytics, and intelligent decision-support systems.' },
+  { title: 'Edge-AI Fire Detection System Exhibition', organization: 'The University of Faisalabad', badge: 'AI', description: 'Developed and exhibited an edge-AI fire detection and suppression system integrating YOLOv11, Raspberry Pi, computer vision, and automated actuators for real-time fire detection and physical response.' },
 ];
 export const certifications = [
   { title: 'Foundation Course on AI Readiness', url: 'https://drive.google.com/file/d/1GTq_8DgK1r-ROBlTUDyioAmW2HmMtzvE/view', issuer: 'IICT · AI Skills House · Google and YouTube', year: '25 Aug 2026' },

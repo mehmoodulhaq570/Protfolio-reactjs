@@ -65,7 +65,7 @@ const Home = () => {
         <p className="mb-2 text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">
           AI · Data Science · Engineering
         </p>
-        <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
+        <h1 className="whitespace-nowrap text-2xl sm:text-5xl font-bold leading-tight">
           Engr. {profile.name}
         </h1>
         <p className="mt-3 min-h-9 text-lg sm:text-2xl">
