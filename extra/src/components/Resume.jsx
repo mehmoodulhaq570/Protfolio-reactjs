@@ -1,1 +1,0 @@
-﻿export { ResumeSection as default } from './PortfolioSections';

@@ -10,6 +10,10 @@
   scholar: 'https://scholar.google.com/citations?user=oRDkaNIAAAAJ&hl=en',
   skillsProfile: 'https://www.skills.google/public_profiles/11036b3f-3aca-4ce1-877f-abb407608f1a',
   credly: 'https://www.credly.com/users/mehmoodulhaq570/badges/credly',
+  kaggle: 'https://www.kaggle.com/mehmoodulhaq570',
+  medium: 'https://medium.com/@mehmoodulhaq570',
+  lightningAi: 'https://lightning.ai/mehmoodulhaq570',
+  devTo: 'https://dev.to/mehmoodulhaq570',
 };
 export const interests = [
   { title: 'AI & Predictive Analytics', detail: 'Machine learning for forecasting, decision support, and practical engineering problems.' },
@@ -99,8 +103,8 @@ export const skills = [
 ];
 export const experience = [
   { role: 'AI Engineering Officer (GET)', organization: 'NESPAK · Pakistan', dates: 'Jan 2026 – Present', contributions: ['Developing recruitment automation modules using NLP-based CV analysis, candidate matching, and verification workflows integrated with enterprise HR systems.', 'Modernizing the HR management platform by redesigning recruitment workflows and implementing an ATS-based hiring pipeline for applicant tracking and employee management.'] },
-  { role: 'AI Research Engineer / Data Scientist', document: { label: 'View KICS experience letter', url: 'https://drive.google.com/file/d/151xmDt8fDAgJcN95JlseDjuMqcowfjwy/view' }, organization: 'Data Science Lab (DSL) · Al-Khawarizmi Institute of Computer Science (KICS), UET Lahore', dates: 'Oct 2024 – Dec 2025', contributions: ['Developed machine learning and deep learning solutions for solar-energy predictive analytics, time-series forecasting, and AI-driven decision support.', 'Designed end-to-end ML pipelines covering data cleaning, preprocessing, feature engineering, model training, and evaluation.', 'Contributed to AI research projects in collaboration with DFKI Germany.'] },
-  { role: 'AI/ML Engineer Intern', organization: 'Data Science Lab (DSL) · KICS, UET Lahore', dates: 'Jul 2024 – Sep 2024', contributions: ['Implemented Scikit-learn and TensorFlow models across preprocessing, training, optimization, and evaluation workflows.', 'Performed exploratory data analysis, feature engineering, and statistical analysis on real-world datasets.', 'Explored AI model deployment using cloud platforms.'] },
+  { role: 'AI Research Engineer / Data Scientist', organization: 'Data Science Lab (DSL) · Al-Khawarizmi Institute of Computer Science (KICS), UET Lahore', dates: 'Oct 2024 – Dec 2025', contributions: ['Developed machine learning and deep learning solutions for solar-energy predictive analytics, time-series forecasting, and AI-driven decision support.', 'Designed end-to-end ML pipelines covering data cleaning, preprocessing, feature engineering, model training, and evaluation.', 'Contributed to AI research projects in collaboration with DFKI Germany.'] },
+  { role: 'AI/ML Engineer Intern', document: { label: 'View KICS internship experience letter', url: 'https://drive.google.com/file/d/151xmDt8fDAgJcN95JlseDjuMqcowfjwy/view' }, organization: 'Data Science Lab (DSL) · KICS, UET Lahore', dates: 'Jul 2024 – Sep 2024', contributions: ['Implemented Scikit-learn and TensorFlow models across preprocessing, training, optimization, and evaluation workflows.', 'Performed exploratory data analysis, feature engineering, and statistical analysis on real-world datasets.', 'Explored AI model deployment using cloud platforms.'] },
 ];
 export const education = [
   { degree: 'M.S. Data Science', institution: 'University of Engineering and Technology, Lahore', dates: 'Sep 2025 – Present', detail: 'In progress · Lahore, Punjab, Pakistan.' },

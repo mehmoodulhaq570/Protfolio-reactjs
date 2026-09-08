@@ -1,25 +1,88 @@
-﻿import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import NavigationBar from './components/Navigationbar';
-import Home from './components/Home';
-import { AchievementsSection, CertificationsSection, AboutSection, InterestsSection, ResearchSection, ProjectsSection, SkillsSection, ExperienceSection, EducationSection, ResumeSection, ContactSection } from './components/PortfolioSections';
-import { DarkModeProvider } from './context/DarkModeProvider';
-import Footer from './components/Footer';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavigationBar from "./components/Navigationbar";
+import HomePage from "./components/Home";
+import AboutPage from "./components/About";
+import SkillsPage from "./components/Skills";
+import EducationPage from "./components/Education";
+import ExperiencePage from "./components/Experience";
+import ProjectsPage from "./components/Projects";
+import ResumePage from "./components/Resume";
+import { ResearchSection, InterestsSection, CertificationsSection, CommunitySection, AchievementsSection, ContactSection } from "./components/PortfolioSections";
+import { DarkModeProvider, useDarkMode } from "./context/DarkModeProvider"; // Import DarkModeProvider
 
-function RouteEffects() {
-  const { pathname, hash } = useLocation();
-  useEffect(() => {
-    const label = pathname === '/' ? 'AI/ML Research & Engineering' : pathname.slice(1).replace(/^./, c => c.toUpperCase());
-    document.title = `Mehmood Ul Haq | ${label}`;
-    const frame = requestAnimationFrame(() => {
-      if (hash) document.getElementById(hash.slice(1))?.scrollIntoView();
-      else window.scrollTo(0, 0);
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [pathname, hash]);
-  return null;
-}
-const pages = { achievements: AchievementsSection, certifications: CertificationsSection, about: AboutSection, research: ResearchSection, interests: InterestsSection, projects: ProjectsSection, skills: SkillsSection, experience: ExperienceSection, education: EducationSection, resume: ResumeSection, contact: ContactSection };
-export default function App() {
-  return <DarkModeProvider><BrowserRouter><RouteEffects/><a className="skip-link" href="#main-content">Skip to content</a><NavigationBar/><main id="main-content" className="site-main"><Routes><Route path="/" element={<Home/>}/>{Object.entries(pages).map(([path, Component]) => <Route key={path} path={`/${path}`} element={<div className="standalone-page"><Link to="/" className="text-link back-link">← Back to overview</Link><Component/></div>}/>)}<Route path="*" element={<div className="standalone-page"><h1>Page not found.</h1><Link to="/" className="button primary">Return home</Link></div>}/></Routes></main><Footer/></BrowserRouter></DarkModeProvider>;
-}
+const App = () => {
+  return (
+    <DarkModeProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </DarkModeProvider>
+  );
+};
+
+// Separate AppContent to access dark mode from context
+const AppContent = () => {
+  const { darkMode, toggleDarkMode } = useDarkMode(); // Access dark mode and toggle function from context
+
+  return (
+    <div
+      className={`${
+        darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+      } min-h-screen transition-colors duration-500`} // Global dark mode transition
+    >
+      {/* Static Navigation Bar */}
+      <NavigationBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+
+      {/* Content Below Navigation */}
+      <div className="pt-16">
+        <Routes>
+          {/* Adding key to Route to force re-render for each page */}
+          <Route
+            path="/"
+            element={<HomePage />}
+            key={darkMode ? "dark-home" : "light-home"}
+          />
+          <Route
+            path="/about"
+            element={<AboutPage />}
+            key={darkMode ? "dark-about" : "light-about"}
+          />
+          <Route
+            path="/skills"
+            element={<SkillsPage />}
+            key={darkMode ? "dark-skills" : "light-skills"}
+          />
+          <Route
+            path="/education"
+            element={<EducationPage />}
+            key={darkMode ? "dark-education" : "light-education"}
+          />
+          <Route
+            path="/experience"
+            element={<ExperiencePage />}
+            key={darkMode ? "dark-experience" : "light-experience"}
+          />
+          <Route
+            path="/projects"
+            element={<ProjectsPage />}
+            key={darkMode ? "dark-projects" : "light-projects"}
+          />
+          <Route
+            path="/resume"
+            element={<ResumePage />}
+            key={darkMode ? "dark-resume" : "light-resume"}
+          />
+          <Route path="/research" element={<ResearchSection />} />
+          <Route path="/interests" element={<InterestsSection />} />
+          <Route path="/certifications" element={<CertificationsSection />} />
+          <Route path="/community" element={<CommunitySection />} />
+          <Route path="/achievements" element={<AchievementsSection />} />
+          <Route path="/contact" element={<ContactSection />} />
+        </Routes>
+      </div>
+    </div>
+  );
+};
+
+export default App;

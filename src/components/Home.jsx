@@ -1,7 +1,76 @@
-import { Link } from 'react-router-dom';
-import { profile } from '../data/portfolio';
-import { ExternalLink, AchievementsSection, AboutSection, InterestsSection, ResearchSection, ProjectsSection, SkillsSection, ExperienceSection, EducationSection, CommunitySection, CertificationsSection, ResumeSection, ContactSection } from './PortfolioSections';
+import React, { useState, useEffect, useMemo } from "react";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
-export default function Home() {
-  return <><section className="hero" aria-labelledby="hero-title"><div className="hero-copy"><p className="eyebrow"><span className="status-dot"/> Research · AI / ML · Engineering</p><h1 id="hero-title">Mehmood<br/><em>Ul Haq.</em></h1><p className="hero-role">{profile.role}</p><p className="hero-positioning">{profile.positioning}</p><div className="button-row"><Link to="/#projects" className="button primary">Explore my work <span aria-hidden="true">↘</span></Link><ExternalLink href={profile.cvDownload} className="button secondary">Download CV</ExternalLink></div><div className="link-row hero-links"><ExternalLink href={profile.github}>GitHub</ExternalLink><ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink>{profile.scholar && <ExternalLink href={profile.scholar}>Google Scholar</ExternalLink>}<Link to="/#contact">Contact ↗</Link></div></div><div className="hero-visual"><div className="portrait-frame"><img src="/images/my-photo.png" alt="Mehmood Ul Haq" width="480" height="600" fetchPriority="high"/><div className="portrait-caption"><span>M.S. DATA SCIENCE</span><span>UET Lahore</span></div></div><div className="research-note"><span className="eyebrow">Research focus</span><p>Energy forecasting.<br/>Explainable engineering.<br/>Intelligent applications.</p><Link to="/#interests" aria-label="Explore research interests">↗</Link></div></div></section><div className="focus-strip"><span>DATA → MODELS → SYSTEMS</span><p>Connecting research questions with practical engineering.</p></div><AboutSection/><InterestsSection/><ResearchSection/><ProjectsSection/><SkillsSection/><ExperienceSection/><EducationSection/><AchievementsSection/><CommunitySection/><CertificationsSection/><ResumeSection/><ContactSection/></>;
-}
+const Portfolio = () => {
+  const [currentText, setCurrentText] = useState("");
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [isRemoving, setIsRemoving] = useState(false);
+
+  const phrases = useMemo(() => ["Computer Engineer", "Developer", "Researcher"], []);
+  const staticText = "I'm a";
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentPhrase = phrases[currentPhraseIndex];
+
+      if (!isRemoving) {
+        if (currentText.length < currentPhrase.length) {
+          setCurrentText((prevText) => currentPhrase.slice(0, prevText.length + 1));
+        } else {
+          setTimeout(() => setIsRemoving(true), 1000);
+        }
+      } else {
+        if (currentText.length > 0) {
+          setCurrentText((prevText) => currentPhrase.slice(0, prevText.length - 1));
+        } else {
+          setIsRemoving(false);
+          setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+        }
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [currentText, isRemoving, currentPhraseIndex, phrases]);
+
+  return (
+    <div>
+      {/* Main Content */}
+      <div className="pt-0">
+        <main className="flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-8 py-12">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">Engr. Mehmood Ul Haq</h1>
+          <p className="text-xl sm:text-3xl mt-4 min-h-10">
+            <span className="font-normal">{staticText}</span>{" "}
+            <span className="text-blue-500 font-bold">{currentText}</span>
+          </p>
+          <div className="flex flex-wrap justify-center mt-8 gap-4 sm:gap-6">
+            <a
+              href="https://www.linkedin.com/in/mehmodulhaq570/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 hover:bg-blue-400 text-white rounded-full p-3 sm:p-4"
+            >
+              <FaLinkedin size={40} />
+            </a>
+            <a
+              href="https://github.com/mehmoodulhaq570"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-600 hover:bg-gray-500 text-white rounded-full p-3 sm:p-4"
+            >
+              <FaGithub size={40} />
+            </a>
+            <a
+              href="mailto:mehmoodulhaq1040@gmail.com"
+              className="bg-red-500 hover:bg-red-400 text-white rounded-full p-3 sm:p-4"
+            >
+              <FaEnvelope size={40} />
+            </a>
+          </div>
+        </main>
+
+      </div>
+    </div>
+  );
+};
+
+export default Portfolio;
