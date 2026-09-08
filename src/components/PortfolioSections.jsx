@@ -3,28 +3,138 @@ import {
   FaAward,
   FaBloggerB,
   FaBolt,
+  FaBrain,
+  FaChartLine,
+  FaCode,
+  FaCss3Alt,
+  FaDatabase,
   FaDev,
   FaEnvelope,
   FaGithub,
   FaGoogle,
   FaGraduationCap,
   FaKaggle,
+  FaLanguage,
   FaLinkedin,
   FaMedium,
   FaPenNib,
+  FaRobot,
+  FaUsers,
+  FaAws,
+  FaHtml5,
 } from 'react-icons/fa';
+import {
+  SiCplusplus,
+  SiFastapi,
+  SiFlask,
+  SiGithub,
+  SiGooglecolab,
+  SiHuggingface,
+  SiJavascript,
+  SiLangchain,
+  SiMlflow,
+  SiMysql,
+  SiNumpy,
+  SiOpencv,
+  SiPandas,
+  SiPlotly,
+  SiPycharm,
+  SiPython,
+  SiPytorch,
+  SiReact,
+  SiScikitlearn,
+  SiSharp,
+  SiTensorflow,
+} from 'react-icons/si';
 
 const button = 'inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors shadow';
 const outlineButton = 'inline-flex items-center justify-center border border-blue-500 text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-700 px-5 py-2.5 rounded-lg font-semibold transition-colors';
 const card = 'portfolio-card bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 border border-gray-100 dark:border-gray-700';
+const skillItemIcons = {
+  'Python': SiPython,
+  'C#': SiSharp,
+  'C++': SiCplusplus,
+  'JavaScript': SiJavascript,
+  'HTML': FaHtml5,
+  'CSS': FaCss3Alt,
+  'SQL': FaDatabase,
+  'TensorFlow': SiTensorflow,
+  'PyTorch': SiPytorch,
+  'Scikit-learn': SiScikitlearn,
+  'OpenCV': SiOpencv,
+  'Forecasting': FaChartLine,
+  'SHAP': FaBrain,
+  'LLMs': FaRobot,
+  'RAG': FaRobot,
+  'Prompt engineering': FaPenNib,
+  'Hugging Face Transformers': SiHuggingface,
+  'LangChain': SiLangchain,
+  'SBERT': FaBrain,
+  'FAISS': FaDatabase,
+  'ChromaDB': FaDatabase,
+  'Pandas': SiPandas,
+  'NumPy': SiNumpy,
+  'Plotly': SiPlotly,
+  'Feature engineering': FaCode,
+  'Model evaluation': FaChartLine,
+  'MLflow': SiMlflow,
+  'FastAPI': SiFastapi,
+  'Flask': SiFlask,
+  'React': SiReact,
+  'MySQL': SiMysql,
+  'Git / GitHub': SiGithub,
+  'AWS': FaAws,
+  'Visual Studio': FaCode,
+  'VS Code': FaCode,
+  'PyCharm': SiPycharm,
+  'Google Colab': SiGooglecolab,
+  'Canva': FaCode,
+  'Leadership': FaUsers,
+  'Written & verbal communication': FaUsers,
+  'Problem-solving': FaBrain,
+  'Teamwork': FaUsers,
+  'Organization': FaUsers,
+  'Attention to detail': FaBrain,
+  'Time management': FaChartLine,
+  'Urdu': FaLanguage,
+  'English': FaLanguage,
+};
+const skillItemColors = {
+  'Python': 'text-blue-500',
+  'C#': 'text-violet-600 dark:text-violet-400',
+  'C++': 'text-blue-600 dark:text-blue-400',
+  'JavaScript': 'text-amber-500',
+  'HTML': 'text-orange-600 dark:text-orange-400',
+  'CSS': 'text-blue-500',
+  'SQL': 'text-sky-700 dark:text-sky-400',
+  'TensorFlow': 'text-orange-500',
+  'PyTorch': 'text-red-500',
+  'Scikit-learn': 'text-orange-500',
+  'OpenCV': 'text-red-500',
+  'Hugging Face Transformers': 'text-yellow-500',
+  'LangChain': 'text-emerald-600 dark:text-emerald-400',
+  'Pandas': 'text-indigo-600 dark:text-indigo-400',
+  'NumPy': 'text-sky-600 dark:text-sky-400',
+  'Plotly': 'text-indigo-500',
+  'MLflow': 'text-blue-500',
+  'FastAPI': 'text-teal-600 dark:text-teal-400',
+  'Flask': 'text-gray-800 dark:text-gray-200',
+  'React': 'text-cyan-500',
+  'MySQL': 'text-blue-600 dark:text-blue-400',
+  'Git / GitHub': 'text-gray-900 dark:text-white',
+  'AWS': 'text-orange-500',
+  'PyCharm': 'text-green-600 dark:text-green-400',
+  'Google Colab': 'text-orange-500',
+  'Canva': 'text-cyan-500',
+};
 
 export function ExternalLink({ href, children, className = button }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{children}<span aria-hidden="true" className="ml-2">↗</span></a>;
 }
 
-export function Section({ id, title, subtitle, children }) {
+export function Section({ id, title, subtitle, children, wide = false }) {
   return <main id={id} className="portfolio-page min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-4 sm:px-8 py-10">
-    <div className="container max-w-6xl mx-auto">
+    <div className={`container ${wide ? 'max-w-7xl' : 'max-w-6xl'} mx-auto`}>
       <header className="text-center mb-12"><h1 className="text-4xl sm:text-5xl font-bold">{title}</h1>{subtitle && <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mt-4 leading-relaxed">{subtitle}</p>}</header>
       {children}
     </div>
@@ -145,8 +255,22 @@ export function ProjectsSection() {
 }
 
 export function SkillsSection() {
-  return <Section id="skills" title="Technical Skills" subtitle="Tools and technologies I use across research, data science, and software engineering.">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{skills.map(group => <article key={group.title} className={card}><h2 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-300">{group.title}</h2><div className="flex flex-wrap gap-2">{group.items.map(item => <span key={item} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-2 rounded-lg text-sm">{item}</span>)}</div></article>)}</div>
+  return <Section id="skills" title="Technical Skills" subtitle="I enjoy learning new technologies and applying them across research, data science, and software engineering." wide>
+    <div className="-mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8">{skills.map(group =>
+      <section key={group.title} className="md:rounded-xl md:border md:border-gray-100 md:dark:border-gray-700 md:bg-white md:dark:bg-gray-800 md:p-6 md:shadow-lg" aria-labelledby={`skill-${group.title.replace(/\W+/g, '-').toLowerCase()}`}>
+        <h2 id={`skill-${group.title.replace(/\W+/g, '-').toLowerCase()}`} className="text-xl sm:text-2xl font-bold mb-6 text-center sm:text-left">{group.title}</h2>
+        <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-6">
+          {group.items.map(item => {
+            const ItemIcon = skillItemIcons[item] || FaCode;
+            const iconColor = skillItemColors[item] || 'text-blue-600 dark:text-blue-300';
+            return <div key={item} className="flex w-[82px] sm:w-[92px] flex-col items-center text-center">
+              <ItemIcon className={`${iconColor} text-4xl`} aria-hidden="true" />
+              <span className="mt-2.5 text-xs sm:text-sm leading-tight text-gray-700 dark:text-gray-200">{item}</span>
+            </div>;
+          })}
+        </div>
+      </section>
+    )}</div>
   </Section>;
 }
 
