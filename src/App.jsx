@@ -29,7 +29,7 @@ const AppContent = () => {
     <div
       className={`${
         darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
-      } min-h-screen transition-colors duration-500`} // Global dark mode transition
+      } min-h-screen`}
     >
       {/* Static Navigation Bar */}
       <NavigationBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />

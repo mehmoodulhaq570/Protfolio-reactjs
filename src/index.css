@@ -6,7 +6,6 @@ body {
   margin: 0;
   min-height: 100vh;
   background: #ffffff;
-  transition: background-color 300ms ease, color 300ms ease;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -34,6 +33,30 @@ html[data-theme="light"],
 html[data-theme="light"] #root {
   background: #ffffff;
   color: #000000;
+}
+
+/* Route-wide theme fallback. These selectors use the value managed by
+   DarkModeProvider, so every portfolio route updates with the toggle. */
+html[data-theme="dark"] .portfolio-page {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .portfolio-card {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .portfolio-page {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+html[data-theme="light"] .portfolio-card {
+  background-color: #ffffff;
+  border-color: #f3f4f6;
+  color: #111827;
 }
 
 /* Added sections styled to match the original portfolio theme. */

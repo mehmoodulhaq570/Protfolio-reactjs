@@ -2,7 +2,7 @@ import { profile, interests, research, publications, projects, skills, experienc
 
 const button = 'inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors shadow';
 const outlineButton = 'inline-flex items-center justify-center border border-blue-500 text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-700 px-5 py-2.5 rounded-lg font-semibold transition-colors';
-const card = 'bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 border border-gray-100 dark:border-gray-700';
+const card = 'portfolio-card bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 border border-gray-100 dark:border-gray-700';
 
 export function ExternalLink({ href, children, className = button }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{children}<span aria-hidden="true" className="ml-2">↗</span></a>;
