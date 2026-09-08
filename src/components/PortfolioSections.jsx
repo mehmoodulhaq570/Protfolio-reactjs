@@ -41,7 +41,6 @@ export function CertificationsSection() {
 export function CommunitySection() {
   return <Section id="community" title="Leadership & Community" subtitle="Technical leadership, student organizations, and community service.">
     <div className="relative max-w-4xl mx-auto"><div className="hidden sm:block absolute left-6 top-0 bottom-0 border-l-4 border-blue-500" />{leadership.map(item => <article key={item.role + item.organization} className="relative sm:pl-16 mb-7"><span className="hidden sm:block absolute left-3 top-7 w-7 h-7 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"/><div className={card}><p className="text-blue-500 text-sm font-semibold">{item.dates}</p><h2 className="text-2xl font-bold mt-2">{item.role}</h2><p className="text-blue-600 dark:text-blue-300 font-semibold my-2">{item.organization}</p><p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p></div></article>)}</div>
-    <div className="flex flex-wrap justify-center gap-3 mt-10"><a href="/certifications" className={button}>View Certifications</a><a href="/achievements" className={outlineButton}>View Achievements</a><a href="/interests" className={outlineButton}>Research Interests</a></div>
   </Section>;
 }
 
