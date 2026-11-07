@@ -76,8 +76,8 @@ const Home = () => {
         <p className="sr-only">I&apos;m an AI Engineer, Data Scientist and AI/ML Researcher.</p>
         <p className="mt-3 min-h-9 text-lg sm:text-2xl" aria-hidden="true">
           <span className="font-normal">I&apos;m {roles[roleIndex].startsWith("AI") ? "an" : "a"} </span>
-          <span className="font-bold text-blue-500">{currentText}</span>
-          <span className="ml-1 text-blue-500 animate-pulse">|</span>
+          <span className="font-bold text-blue-600 dark:text-blue-400">{currentText}</span>
+          <span className="ml-1 text-blue-600 dark:text-blue-400 animate-pulse">|</span>
         </p>
 
         <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300">

@@ -41,7 +41,7 @@ Per-page SEO metadata and structured data live in `src/data/seo.js`. Adding a ro
 - `src/App.jsx`: routes (the router itself is supplied by `main.jsx` or `entry-server.jsx`).
 - `src/data/seo.js` and `src/components/Seo.jsx`: per-route titles, descriptions, canonical/Open Graph tags, and JSON-LD.
 - `src/index.css`: responsive visual design and Tailwind directives.
-- `public/images/`: original portrait and project assets.
+- `public/images/`: WebP portraits (360px for the homepage, 600px for About). `public/og-image.png` is the 1200×630 social share card.
 - `CONTENT_NEEDED.md`: details still needed to complete the content.
 
 Existing routes (`/about`, `/skills`, `/education`, `/experience`, `/projects`, `/resume`) remain available. Added `/research`, `/interests`, and `/contact`.
