@@ -13,29 +13,27 @@ const applyTheme = (isDark) => {
 // Custom Hook to use Dark Mode Context
 export const useDarkMode = () => useContext(DarkModeContext);
 
-// Dark Mode Provider Component
+// The inline script in index.html applies the saved theme before first paint. React starts in light mode
+// so the prerendered markup and the first client render match, then adopts the theme already on <html>.
+// Styling uses Tailwind's `dark:` variants, so nothing flashes while this state catches up.
 export const DarkModeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(() => {
-    try {
-      const savedTheme = localStorage.getItem("darkMode");
-      const initialTheme = savedTheme !== null
-        ? savedTheme === "true"
-        : window.matchMedia("(prefers-color-scheme: dark)").matches;
-      applyTheme(initialTheme);
-      return initialTheme;
-    } catch {
-      return false;
-    }
-  });
+  const [darkMode, setDarkMode] = useState(false);
+  const [themeLoaded, setThemeLoaded] = useState(false);
 
   useEffect(() => {
+    setDarkMode(document.documentElement.classList.contains("dark"));
+    setThemeLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!themeLoaded) return;
     applyTheme(darkMode);
     try {
       localStorage.setItem("darkMode", String(darkMode));
     } catch {
       // Theme still works when browser storage is unavailable.
     }
-  }, [darkMode]);
+  }, [darkMode, themeLoaded]);
 
   // Toggle Dark Mode
   const toggleDarkMode = () => {

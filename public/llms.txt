@@ -1,0 +1,18 @@
+# Mehmood Ul Haq
+
+> AI Engineering Officer at NESPAK and M.S. Data Science student at the University of Engineering and Technology (UET), Lahore, Pakistan. Research in solar-energy forecasting, explainable machine learning for engineering materials, and computer vision.
+
+## Pages
+
+- [Research & Publications](https://mehmoodulhaq570.netlify.app/research): peer-reviewed papers with DOIs, plus manuscripts under review
+- [Projects](https://mehmoodulhaq570.netlify.app/projects): AI/ML projects with GitHub links
+- [Experience](https://mehmoodulhaq570.netlify.app/experience): NESPAK; Data Science Lab, KICS, UET Lahore
+- [Education](https://mehmoodulhaq570.netlify.app/education)
+- [About](https://mehmoodulhaq570.netlify.app/about)
+- [Contact](https://mehmoodulhaq570.netlify.app/contact)
+
+## Profiles
+
+- [Google Scholar](https://scholar.google.com/citations?user=oRDkaNIAAAAJ&hl=en)
+- [GitHub](https://github.com/mehmoodulhaq570)
+- [LinkedIn](https://www.linkedin.com/in/mehmodulhaq570/)

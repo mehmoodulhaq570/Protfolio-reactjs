@@ -24,6 +24,7 @@ const NavigationBar = () => {
   ];
 
   const exploreLinks = [
+    { name: "Education", path: "/education" },
     { name: "Achievements", path: "/achievements" },
     { name: "Research Interests", path: "/interests" },
   ];
@@ -94,18 +95,11 @@ const NavigationBar = () => {
             type="button"
             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             aria-pressed={darkMode}
-            className={`relative flex items-center justify-between ${
-              darkMode
-                ? "bg-gradient-to-r from-blue-900 to-gray-700"
-                : "bg-gradient-to-r from-yellow-300 to-yellow-500"
-            } rounded-full w-16 h-7 p-1 transition-all duration-500 cursor-pointer`} // Adjusted height here
+            // Visual state follows the `dark` class on <html>, so the prerendered toggle never flashes.
+            className="relative flex items-center justify-between bg-gradient-to-r from-yellow-300 to-yellow-500 dark:from-blue-900 dark:to-gray-700 rounded-full w-16 h-7 p-1 transition-all duration-500 cursor-pointer"
           >
             {/* Circle Button */}
-            <div
-              className={`w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 transform ${
-                darkMode ? "translate-x-8" : "translate-x-0"
-              }`} // Circle size remains unchanged
-            />
+            <div className="w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 transform translate-x-0 dark:translate-x-8" />
 
             {/* Sun and Moon Icons */}
             <div className="absolute left-1 flex items-center space-x-2 text-yellow-500 opacity-100 transition-opacity duration-300">

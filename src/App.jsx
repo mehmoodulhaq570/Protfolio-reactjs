@@ -1,6 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/Navigationbar";
+import Seo from "./components/Seo";
 import HomePage from "./components/Home";
 import AboutPage from "./components/About";
 import SkillsPage from "./components/Skills";
@@ -8,81 +9,37 @@ import EducationPage from "./components/Education";
 import ExperiencePage from "./components/Experience";
 import ProjectsPage from "./components/Projects";
 import ResumePage from "./components/Resume";
-import { ResearchSection, InterestsSection, CertificationsSection, CommunitySection, AchievementsSection, ContactSection } from "./components/PortfolioSections";
-import { DarkModeProvider, useDarkMode } from "./context/DarkModeProvider"; // Import DarkModeProvider
+import { ResearchSection, InterestsSection, CertificationsSection, CommunitySection, AchievementsSection, ContactSection, NotFoundSection } from "./components/PortfolioSections";
+import { DarkModeProvider } from "./context/DarkModeProvider";
 
-const App = () => {
-  return (
-    <DarkModeProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </DarkModeProvider>
-  );
-};
+// The router is supplied by the caller: BrowserRouter in main.jsx, StaticRouter in entry-server.jsx.
+const App = () => (
+  <DarkModeProvider>
+    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
+      <Seo />
+      <NavigationBar />
 
-// Separate AppContent to access dark mode from context
-const AppContent = () => {
-  const { darkMode, toggleDarkMode } = useDarkMode(); // Access dark mode and toggle function from context
-
-  return (
-    <div
-      className={`${
-        darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
-      } min-h-screen`}
-    >
-      {/* Static Navigation Bar */}
-      <NavigationBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-
-      {/* Content Below Navigation */}
+      {/* Content below the fixed navigation bar */}
       <div className="pt-16">
         <Routes>
-          {/* Adding key to Route to force re-render for each page */}
-          <Route
-            path="/"
-            element={<HomePage />}
-            key={darkMode ? "dark-home" : "light-home"}
-          />
-          <Route
-            path="/about"
-            element={<AboutPage />}
-            key={darkMode ? "dark-about" : "light-about"}
-          />
-          <Route
-            path="/skills"
-            element={<SkillsPage />}
-            key={darkMode ? "dark-skills" : "light-skills"}
-          />
-          <Route
-            path="/education"
-            element={<EducationPage />}
-            key={darkMode ? "dark-education" : "light-education"}
-          />
-          <Route
-            path="/experience"
-            element={<ExperiencePage />}
-            key={darkMode ? "dark-experience" : "light-experience"}
-          />
-          <Route
-            path="/projects"
-            element={<ProjectsPage />}
-            key={darkMode ? "dark-projects" : "light-projects"}
-          />
-          <Route
-            path="/resume"
-            element={<ResumePage />}
-            key={darkMode ? "dark-resume" : "light-resume"}
-          />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/skills" element={<SkillsPage />} />
+          <Route path="/education" element={<EducationPage />} />
+          <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/resume" element={<ResumePage />} />
           <Route path="/research" element={<ResearchSection />} />
           <Route path="/interests" element={<InterestsSection />} />
           <Route path="/certifications" element={<CertificationsSection />} />
           <Route path="/community" element={<CommunitySection />} />
           <Route path="/achievements" element={<AchievementsSection />} />
           <Route path="/contact" element={<ContactSection />} />
+          <Route path="*" element={<NotFoundSection />} />
         </Routes>
       </div>
     </div>
-  );
-};
+  </DarkModeProvider>
+);
 
 export default App;
