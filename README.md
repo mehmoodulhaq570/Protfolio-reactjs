@@ -22,7 +22,14 @@ npm run build
 npm run preview
 ```
 
-The production output is `dist/`. Netlify build settings and the React Router fallback are in `netlify.toml`. Other static hosts must serve `index.html` for application routes such as `/projects`.
+The production output is `dist/`. `npm run build` runs three steps:
+1. the client build;
+2. an SSR build of `src/entry-server.jsx`;
+3. `scripts/prerender.js`, which writes static HTML for every route (`dist/<route>/index.html`), plus `404.html`, `sitemap.xml` and the Netlify `_redirects` rules.
+
+Each page therefore ships with its content, title, description, canonical URL, Open Graph tags and JSON-LD, and React hydrates it in the browser. Unknown paths return `404.html` with a 404 status. Security and caching headers are in `netlify.toml`. Other static hosts must serve `<route>/index.html` for each route and `404.html` for everything else.
+
+Per-page SEO metadata and structured data live in `src/data/seo.js`. Adding a route means adding it to `App.jsx` and to the `pages` list there, so it gets prerendered and included in the sitemap.
 
 ## Content and structure
 
@@ -31,7 +38,8 @@ The production output is `dist/`. Netlify build settings and the React Router fa
 - `src/components/Home.jsx`: introduction and complete portfolio overview.
 - `src/components/Navigationbar.jsx`: responsive navigation and theme toggle.
 - `src/context/DarkModeProvider.jsx`: persistent light/dark theme.
-- `src/App.jsx`: routes, page titles, and anchor scrolling.
+- `src/App.jsx`: routes (the router itself is supplied by `main.jsx` or `entry-server.jsx`).
+- `src/data/seo.js` and `src/components/Seo.jsx`: per-route titles, descriptions, canonical/Open Graph tags, and JSON-LD.
 - `src/index.css`: responsive visual design and Tailwind directives.
 - `public/images/`: original portrait and project assets.
 - `CONTENT_NEEDED.md`: details still needed to complete the content.

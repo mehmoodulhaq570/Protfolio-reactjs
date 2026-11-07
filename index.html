@@ -1,20 +1,27 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Mehmood Ul Haq — AI/ML researcher, data scientist, and computer engineer. Research and projects in energy forecasting, computer vision, and intelligent systems." />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
-    <title>Mehmood Ul Haq | AI/ML Research &amp; Engineering</title>
+    <script>
+      // Apply the saved or system theme before first paint (DarkModeProvider adopts it after hydration).
+      try {
+        var saved = localStorage.getItem("darkMode");
+        var dark = saved !== null ? saved === "true" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var root = document.documentElement;
+        root.classList.toggle("dark", dark);
+        root.dataset.theme = dark ? "dark" : "light";
+        root.style.colorScheme = dark ? "dark" : "light";
+      } catch (e) {}
+    </script>
+    <!--app-head-->
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
-

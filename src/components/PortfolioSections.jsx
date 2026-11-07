@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { profile, interests, research, publications, projects, skills, additionalSkills, experience, education, leadership, certifications, achievements } from '../data/portfolio';
 import {
   FaAward,
@@ -228,7 +229,7 @@ export function AboutSection() {
         <p>I am an M.S. Data Science student at UET Lahore and an AI Engineering Officer at NESPAK. I develop intelligent recruitment workflows using NLP-based CV analysis, candidate matching, and enterprise HR integration.</p>
         <p>Previously, I worked as an AI Research Engineer and Data Scientist at the Data Science Lab, KICS, where I built data pipelines, forecasting models, and predictive analytics systems while contributing to research with DFKI Germany.</p>
         <p>My work connects machine learning with energy forecasting, explainable engineering models, computer vision, recommendation systems, and generative AI.</p>
-        <div className="flex flex-wrap gap-3 pt-3"><a href="/experience" className={button}>View Experience</a><a href="/research" className={outlineButton}>Explore Research</a></div>
+        <div className="flex flex-wrap gap-3 pt-3"><Link to="/experience" className={button}>View Experience</Link><Link to="/research" className={outlineButton}>Explore Research</Link></div>
         <aside className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-r-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-gray-800 p-4 sm:p-5" aria-labelledby="beyond-engineering-title">
           <div className="shrink-0 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white">
             <FaPenNib className="text-xl" aria-hidden="true" />
@@ -241,7 +242,7 @@ export function AboutSection() {
           <ExternalLink href={profile.readersHub} className={`${outlineButton} shrink-0 text-sm px-4 py-2`}>Visit Readers Hub</ExternalLink>
         </aside>
       </div>
-      <div className={`${card} w-full max-w-[240px] sm:max-w-[280px] mx-auto lg:mx-0 lg:justify-self-end p-3`}><img src="/images/my-photo.png" alt="Mehmood Ul Haq" className="w-full aspect-[4/5] object-cover object-top rounded-lg"/><p className="text-center text-sm font-bold mt-3">Mehmood Ul Haq</p></div>
+      <div className={`${card} w-full max-w-[240px] sm:max-w-[280px] mx-auto lg:mx-0 lg:justify-self-end p-3`}><img src="/images/mehmood-ul-haq-600.webp" alt="Mehmood Ul Haq" width={600} height={648} decoding="async" className="w-full aspect-[4/5] object-cover object-top rounded-lg"/><p className="text-center text-sm font-bold mt-3">Mehmood Ul Haq</p></div>
     </div>
   </Section>;
 }
@@ -292,6 +293,12 @@ export function ExperienceSection() {
 export function EducationSection() {
   return <Section id="education" title="Education" subtitle="Academic preparation in computer engineering and data science.">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">{education.map(item => <article key={item.degree} className={`${card} text-center`}><span className="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">{item.dates}</span><h2 className="text-2xl font-bold mt-5">{item.degree}</h2><p className="text-blue-600 dark:text-blue-300 font-semibold mt-3">{item.institution}</p><p className="text-gray-600 dark:text-gray-300 mt-3">{item.detail}</p></article>)}</div>
+  </Section>;
+}
+
+export function NotFoundSection() {
+  return <Section id="not-found" title="Page not found" subtitle="The page you’re looking for doesn’t exist or has moved.">
+    <div className="flex flex-wrap justify-center gap-3"><Link to="/" className={button}>Go to homepage</Link><Link to="/research" className={outlineButton}>View research</Link></div>
   </Section>;
 }
 
