@@ -38,8 +38,10 @@ async function write(relative, contents) {
   await fs.writeFile(file, contents);
 }
 
+// Flat files (about.html, not about/index.html): Netlify 301-redirects a directory index to a
+// trailing-slash URL, which would contradict the slash-less canonical URLs.
 for (const page of pages) {
-  const file = page.path === '/' ? 'index.html' : `${page.path.slice(1)}/index.html`;
+  const file = page.path === '/' ? 'index.html' : `${page.path.slice(1)}.html`;
   await write(file, renderPage(page.path, jsonLdFor(page.path)));
 }
 
@@ -57,7 +59,7 @@ await write(
 await write(
   '_redirects',
   [
-    ...pages.filter((page) => page.path !== '/').map((page) => `${page.path}  ${page.path}/index.html  200`),
+    ...pages.filter((page) => page.path !== '/').map((page) => `${page.path}  ${page.path}.html  200`),
     '/*  /404.html  404',
     '',
   ].join('\n')
