@@ -2,8 +2,6 @@
   name: 'Mehmood Ul Haq',
   role: 'AI/ML Researcher · Data Scientist · Computer Engineer',
   positioning: 'Building intelligent applications and explainable models for energy, engineering, and enterprise systems.',
-  // Homepage introduction: the plain-text "who I am" passage search engines and AI answers quote.
-  intro: 'I’m an AI Engineering Officer at NESPAK and an M.S. Data Science student at UET Lahore, Pakistan. Previously, I was an AI Research Engineer at the Data Science Lab, KICS, working on solar-energy forecasting and contributing to research with DFKI Germany. My research applies machine learning and SHAP-based explainability to engineering problems, from fatigue-life prediction of additively manufactured Ti-6Al-4V to solar irradiance forecasting, with papers in Progress in Additive Manufacturing, the International Journal of Precision Engineering and Manufacturing, and Results in Engineering.',
   email: 'mehmoodulhaq1040@gmail.com',
   github: 'https://github.com/mehmoodulhaq570',
   linkedin: 'https://www.linkedin.com/in/mehmodulhaq570/',

@@ -116,11 +116,6 @@ const Home = () => {
             </a>
           ))}
         </div>
-
-        {/* Plain-text summary below the calls to action: confirms who this is for search engines and AI answers. */}
-        <p className="mt-10 max-w-2xl border-t border-gray-200 dark:border-gray-700 pt-6 text-left sm:text-center text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-200">
-          {profile.intro}
-        </p>
       </div>
     </main>
   );
