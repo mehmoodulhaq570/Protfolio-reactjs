@@ -44,7 +44,6 @@ html[data-theme="dark"] .portfolio-page {
 
 html[data-theme="dark"] .portfolio-card {
   background-color: #1f2937;
-  border-color: #374151;
   color: #ffffff;
 }
 
@@ -55,15 +54,34 @@ html[data-theme="light"] .portfolio-page {
 
 html[data-theme="light"] .portfolio-card {
   background-color: #ffffff;
-  border-color: #f3f4f6;
   color: #111827;
 }
 
-/* Added sections styled to match the original portfolio theme. */
-.section{min-height:70vh;padding:5rem 2rem;background:#fff;color:#111827}.section-heading{text-align:center;margin-bottom:2.5rem}.eyebrow{color:#2563eb;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.section h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin:.7rem auto;max-width:800px}.section-intro{max-width:760px;margin:0 auto 2rem;text-align:center;color:#4b5563;font-size:1.05rem}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1050px;margin:auto;align-items:center}.large-copy{font-size:1.7rem;font-weight:700;line-height:1.4}.prose{color:#4b5563;line-height:1.8}.interest-grid,.research-grid,.project-grid{max-width:1100px;margin:auto;display:grid;gap:1.5rem}.interest-grid{grid-template-columns:repeat(3,1fr)}.research-grid,.project-grid{grid-template-columns:repeat(2,1fr)}.interest-card,.research-card,.project-card,.achievement-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 8px 24px rgba(15,23,42,.08)}.interest-card,.research-card{padding:1.6rem}.interest-card h3,.research-card h3{font-size:1.25rem;margin:1rem 0 .6rem}.interest-card p,.research-card>p:not(.eyebrow),.publication p{color:#4b5563;line-height:1.7}.publication-group-title{max-width:1100px;margin:2.5rem auto 1rem}.publication{max-width:1100px;margin:auto;padding:1.5rem 0;border-top:1px solid #e5e7eb}.publication h3{font-size:1.35rem;margin:.5rem 0}.project-card{overflow:hidden}.project-workflow{background:#eff6ff;padding:1.2rem}.project-meta{display:flex;justify-content:space-between;color:#2563eb;font-size:.8rem}.project-workflow ol{display:flex;gap:.6rem;list-style:none;padding:0;margin:1rem 0 0}.project-workflow li{flex:1;padding:.6rem .35rem;background:#fff;border:1px solid #dbeafe;border-radius:6px;text-align:center;font-size:.75rem}.project-body{padding:1.5rem}.project-body h3{font-size:1.5rem;margin:.5rem 0 1rem}.project-body dl{margin:0}.project-body dt{font-weight:700;font-size:.75rem;text-transform:uppercase;color:#2563eb}.project-body dd{margin:.2rem 0 1rem;color:#4b5563;line-height:1.6}.tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0}.tags li{background:#eff6ff;color:#1d4ed8;padding:.35rem .65rem;border-radius:999px;font-size:.78rem}.skill-row{max-width:1000px;margin:auto;display:grid;grid-template-columns:220px 1fr;gap:1.5rem;padding:1.25rem 0;border-top:1px solid #e5e7eb}.timeline{max-width:900px;margin:auto}.timeline-item{display:grid;grid-template-columns:220px 1fr;gap:2rem;padding:1.5rem;border-top:1px solid #e5e7eb}.timeline-item h3{font-size:1.35rem}.organization{color:#2563eb;font-weight:600}.contributions{color:#4b5563;line-height:1.7}.certification-list{max-width:900px;margin:auto}.certification-item{display:flex;justify-content:space-between;gap:1rem;padding:1.25rem 0;border-top:1px solid #e5e7eb}.achievement-card{max-width:900px;margin:auto;padding:2rem;display:flex;gap:1.5rem;align-items:center}.award-mark{font-size:3rem;color:#2563eb;font-weight:700}.button{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.2rem;border-radius:7px;font-weight:700}.button.primary{background:#2563eb;color:#fff}.button.secondary{border:1px solid #2563eb;color:#2563eb}.contact-section{background:#eff6ff}.contact-email{display:block;text-align:center;font-size:clamp(1.3rem,3vw,2rem);color:#2563eb;font-weight:700;margin:1.5rem}.link-row{display:flex;gap:1.3rem;justify-content:center;flex-wrap:wrap}.text-link{color:#2563eb;font-weight:700}
-@media(max-width:700px){.section{padding:3.5rem 1.2rem}.about-grid,.interest-grid,.research-grid,.project-grid{grid-template-columns:1fr}.skill-row,.timeline-item{grid-template-columns:1fr;gap:.5rem}.certification-item{flex-direction:column}.achievement-card{align-items:flex-start}.project-workflow li{font-size:.65rem;padding:.5rem .2rem}}
-.dark .section{background:#111827;color:#fff}.dark .interest-card,.dark .research-card,.dark .project-card,.dark .achievement-card,.dark .timeline-item{background:#1f2937;border-color:#374151}.dark .section-intro,.dark .prose,.dark .interest-card p,.dark .research-card>p:not(.eyebrow),.dark .publication p,.dark .project-body dd,.dark .contributions{color:#d1d5db}.dark .publication,.dark .skill-row,.dark .timeline-item,.dark .certification-item{border-color:#374151}.dark .project-workflow,.dark .contact-section{background:#1e3a5f}.dark .project-workflow li,.dark .tags li{background:#1f2937;border-color:#374151;color:#93c5fd}
+/* Clip, not hidden: hidden turns these into scroll containers and breaks sticky. */
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: clip;
+}
 
-html,body,#root{max-width:100%;overflow-x:hidden}.section{width:100%;max-width:1200px;margin:0 auto}.section>*,.section-heading{width:100%}.section-heading h2{line-height:1.15}.research-card,.interest-card,.project-card,.timeline-item,.certification-item,.publication{min-width:0;overflow-wrap:anywhere}.project-body dd{overflow-wrap:anywhere}.project-grid{align-items:stretch}.project-card{height:100%;display:flex;flex-direction:column}.project-body{flex:1}.main-nav{max-width:100%;}
-@media(max-width:900px){.site-header{padding-left:12px!important;padding-right:12px!important}.site-header>div{gap:10px}.site-header nav{gap:12px!important;font-size:12px!important}.section{padding-left:24px;padding-right:24px}.hero{padding-left:24px;padding-right:24px}.about-grid{gap:25px}.interest-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.site-header{position:sticky}.site-header>div{align-items:flex-start;flex-wrap:wrap}.site-header nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap!important;white-space:nowrap;padding:4px 0 6px;scrollbar-width:none}.site-header nav::-webkit-scrollbar{display:none}.site-header nav a{flex:0 0 auto}.section{padding:42px 16px}.hero{padding:36px 16px}.hero h1{font-size:clamp(38px,13vw,58px)}.hero-role{font-size:12px}.hero-positioning{font-size:15px}.button-row{width:100%}.button{flex:1;min-width:135px}.about-grid,.interest-grid,.research-grid,.project-grid{grid-template-columns:1fr}.interest-card,.research-card{padding:20px}.project-workflow ol{gap:5px}.project-workflow li+li:before{display:none}.timeline-item{padding:20px 16px}.contact-section{padding:28px 18px}.site-footer{padding-top:28px;padding-bottom:26px}}
+@layer base {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  /* Keyboard focus. Each colour is at least 3:1 against the surface it sits on:
+     blue-700 on light pages (6.7:1), blue-400 on dark pages (7.0:1) and on the
+     always-black nav (8.3:1). */
+  :focus-visible {
+    outline: 2px solid #1d4ed8;
+    outline-offset: 3px;
+  }
+
+  .dark :focus-visible,
+  header :focus-visible {
+    outline-color: #60a5fa;
+  }
+}

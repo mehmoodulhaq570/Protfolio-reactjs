@@ -48,9 +48,10 @@ import {
   SiTensorflow,
 } from 'react-icons/si';
 
-const button = 'inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors shadow';
-const outlineButton = 'inline-flex items-center justify-center border border-blue-500 text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-700 px-5 py-2.5 rounded-lg font-semibold transition-colors';
-const card = 'portfolio-card bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 border border-gray-100 dark:border-gray-700';
+const button = 'inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors shadow';
+const outlineButton = 'inline-flex items-center justify-center border border-blue-500 text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-700 active:bg-blue-100 dark:active:bg-gray-600 px-5 py-2.5 rounded-lg font-semibold transition-colors';
+// One edge per mode: a shadow on light pages, a border on dark ones (where a shadow can't be seen).
+const card = 'portfolio-card bg-white dark:bg-gray-800 shadow-xl dark:shadow-none rounded-lg p-6 dark:border dark:border-gray-700';
 const skillItemIcons = {
   'Python': SiPython,
   'C#': SiSharp,
@@ -127,6 +128,11 @@ const skillItemColors = {
   'Google Colab': 'text-orange-500',
 };
 
+// Meta line above a card title: the label on the left, the date in its own column on the right.
+function MetaLine({ text, date, className = 'font-semibold' }) {
+  return <p className={`flex flex-wrap justify-between gap-x-4 gap-y-1 text-sm text-blue-600 dark:text-blue-400 ${className}`}><span>{text}</span>{date && <span className="font-normal text-gray-500 dark:text-gray-400">{date}</span>}</p>;
+}
+
 export function ExternalLink({ href, children, className = button }) {
   return <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{children}<span aria-hidden="true" className="ml-2">↗</span></a>;
 }
@@ -149,15 +155,15 @@ export function InterestsSection() {
 export function ResearchSection() {
   return <Section id="research" title="Research & Publications" subtitle="Applied research in renewable energy, materials engineering, predictive analytics, and intelligent systems.">
     <div className="flex justify-center mb-10"><ExternalLink href={profile.scholar}>Google Scholar</ExternalLink></div>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">{research.map(item => <article key={item.title} className={card}><p className="text-blue-600 dark:text-blue-400 text-sm font-bold uppercase tracking-wide">{item.category}</p><h2 className="text-2xl font-bold mt-3 mb-4">{item.title}</h2><p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p><a href={`mailto:${profile.email}?subject=${encodeURIComponent(item.title)}`} className={`${outlineButton} mt-6`}>Discuss Research</a></article>)}</div>
-    {['Published', 'Under review', 'Work in progress'].map(status => <section key={status} className="mb-12"><div className="flex items-center gap-3 mb-5"><h2 className="text-2xl font-bold">{status}</h2><span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 px-3 py-1 rounded-full text-sm">{publications.filter(p => p.status === status).length}</span></div><div className="space-y-5">{publications.filter(p => p.status === status).map(p => <article key={p.title} className={card}><p className="text-blue-600 dark:text-blue-400 text-sm font-semibold">{[p.venue, p.year].filter(Boolean).join(' · ')}</p><h3 className="text-xl sm:text-2xl font-bold my-3 leading-snug">{p.title}</h3>{p.authors && <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{p.authors.join(', ')}</p>}<p className="text-gray-600 dark:text-gray-300 leading-relaxed">{p.description}</p><div className="flex flex-wrap gap-3 mt-5">{p.url && <ExternalLink href={p.url}>View Paper</ExternalLink>}{p.doi && <ExternalLink href={p.doi} className={outlineButton}>View DOI</ExternalLink>}</div></article>)}</div></section>)}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">{research.map(item => <article key={item.title} className={card}><p className="text-blue-600 dark:text-blue-400 text-sm font-bold">{item.category}</p><h2 className="text-2xl font-bold mt-3 mb-4">{item.title}</h2><p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p><a href={`mailto:${profile.email}?subject=${encodeURIComponent(item.title)}`} className={`${outlineButton} mt-6`}>Discuss Research</a></article>)}</div>
+    {['Published', 'Under review', 'Work in progress'].map(status => <section key={status} className="mb-12"><div className="flex items-center gap-3 mb-5"><h2 className="text-2xl font-bold">{status}</h2><span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 px-3 py-1 rounded-full text-sm">{publications.filter(p => p.status === status).length}</span></div><div className="space-y-5">{publications.filter(p => p.status === status).map(p => <article key={p.title} className={card}><MetaLine text={p.venue} date={p.year} /><h3 className="text-xl sm:text-2xl font-bold my-3 leading-snug">{p.title}</h3>{p.authors && <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{p.authors.join(', ')}</p>}<p className="text-gray-600 dark:text-gray-300 leading-relaxed">{p.description}</p><div className="flex flex-wrap gap-3 mt-5">{p.url && <ExternalLink href={p.url}>View Paper</ExternalLink>}{p.doi && <ExternalLink href={p.doi} className={outlineButton}>View DOI</ExternalLink>}</div></article>)}</div></section>)}
   </Section>;
 }
 
 export function CertificationsSection() {
   return <Section id="certifications" title="Certifications & Training" subtitle="Selected professional credentials and continued learning.">
     <div className="flex flex-wrap justify-center gap-3 mb-10"><ExternalLink href={profile.skillsProfile}>Google Skills Profile</ExternalLink><ExternalLink href={profile.credly} className={outlineButton}>Credly Profile</ExternalLink></div>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">{certifications.map(item => <article key={item.title} className={`${card} flex flex-col justify-between`}><div><p className="text-blue-600 dark:text-blue-400 text-sm font-semibold">{[item.issuer, item.year].filter(Boolean).join(' · ')}</p><h2 className="text-xl font-bold mt-3">{item.title}</h2></div><div className="flex flex-wrap gap-3 mt-6">{item.url && <ExternalLink href={item.url}>View Certificate</ExternalLink>}{item.additionalDocuments?.map(doc => <ExternalLink key={doc.url} href={doc.url} className={outlineButton}>{doc.label}</ExternalLink>)}</div></article>)}</div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">{certifications.map(item => <article key={item.title} className={`${card} flex flex-col justify-between`}><div><MetaLine text={item.issuer} date={item.year} /><h2 className="text-xl font-bold mt-3">{item.title}</h2></div><div className="flex flex-wrap gap-3 mt-6">{item.url && <ExternalLink href={item.url}>View Certificate</ExternalLink>}{item.additionalDocuments?.map(doc => <ExternalLink key={doc.url} href={doc.url} className={outlineButton}>{doc.label}</ExternalLink>)}</div></article>)}</div>
   </Section>;
 }
 
@@ -169,7 +175,7 @@ export function CommunitySection() {
 
 export function AchievementsSection() {
   return <Section id="achievements" title="Achievements" subtitle="Recognition for engineering work and applied machine learning.">
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">{achievements.map(item => <article key={item.title} className={`${card} text-center flex flex-col`}><div className="w-16 h-16 rounded-full bg-blue-500 text-white text-base font-bold flex items-center justify-center mx-auto mb-5">{item.badge}</div><p className="text-blue-600 dark:text-blue-400 font-semibold">{item.organization}</p><h2 className="text-xl sm:text-2xl font-bold my-3">{item.title}</h2><p className="text-gray-600 dark:text-gray-300 mx-auto leading-relaxed flex-1">{item.description}</p>{item.url && <div className="mt-6"><ExternalLink href={item.url}>View Award</ExternalLink></div>}</article>)}</div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">{achievements.map(item => <article key={item.title} className={`${card} text-center flex flex-col`}><div className="w-16 h-16 rounded-full bg-blue-700 text-white text-base font-bold flex items-center justify-center mx-auto mb-5">{item.badge}</div><p className="text-blue-600 dark:text-blue-400 font-semibold">{item.organization}</p><h2 className="text-xl sm:text-2xl font-bold my-3">{item.title}</h2><p className="text-gray-600 dark:text-gray-300 mx-auto leading-relaxed flex-1">{item.description}</p>{item.url && <div className="mt-6"><ExternalLink href={item.url}>View Award</ExternalLink></div>}</article>)}</div>
   </Section>;
 }
 
@@ -193,7 +199,7 @@ export function ContactSection() {
       <h2 className="text-xl sm:text-2xl font-bold">Start a conversation</h2>
       <a
         href={`mailto:${profile.email}`}
-        className="inline-block mt-3 mb-8 text-sm sm:text-base text-blue-600 dark:text-blue-300 hover:underline break-all"
+        className="inline-block mt-3 mb-8 text-sm sm:text-base text-blue-600 dark:text-blue-300 hover:underline active:text-blue-800 dark:active:text-blue-200 break-all"
       >
         {profile.email}
       </a>
@@ -210,7 +216,7 @@ export function ContactSection() {
               aria-label={label}
               title={label === 'Email' ? profile.email : label}
             >
-              <span className={`${color} flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full text-white shadow-md group-hover:-translate-y-1 group-hover:shadow-lg transition-transform`}>
+              <span className={`${color} flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full text-white shadow-md group-hover:-translate-y-1 group-hover:shadow-lg group-active:brightness-90 transition-transform`}>
                 <Icon className="text-xl sm:text-2xl" aria-hidden="true" />
               </span>
               <span className="mt-2 max-w-full text-xs sm:text-sm font-semibold leading-tight">{label === 'Email' ? 'Email Me' : label}</span>
@@ -235,8 +241,7 @@ export function AboutSection() {
             <FaPenNib className="text-xl" aria-hidden="true" />
           </div>
           <div className="flex-1">
-            <p className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Beyond Engineering</p>
-            <h2 id="beyond-engineering-title" className="text-lg font-bold text-gray-900 dark:text-white mt-1">Poetry & Creative Writing</h2>
+            <h2 id="beyond-engineering-title" className="text-lg font-bold text-gray-900 dark:text-white">Poetry & Creative Writing</h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">I publish poems and articles through Readers Hub.</p>
           </div>
           <ExternalLink href={profile.readersHub} className={`${outlineButton} shrink-0 text-sm px-4 py-2`}>Visit Readers Hub</ExternalLink>
@@ -249,7 +254,7 @@ export function AboutSection() {
 
 export function ProjectsSection() {
   return <Section id="projects" title="Featured Projects" subtitle="Selected work across forecasting, explainable AI, NLP, data tooling, and computer vision.">
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">{projects.map(project => <article key={project.title} className={`${card} flex flex-col`}><p className="text-blue-600 dark:text-blue-400 text-sm font-bold">{[project.category, project.date].filter(Boolean).join(' · ')}</p><h2 className="text-2xl font-bold my-3">{project.title}</h2><p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-1">{project.problem}</p><p className="text-sm text-gray-500 dark:text-gray-400 mt-4 leading-relaxed">{project.result}</p><div className="flex flex-wrap gap-2 mt-5">{project.technologies.map(tech => <span key={tech} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs px-3 py-1 rounded-full">{tech}</span>)}</div>{project.github && <div className="mt-6"><ExternalLink href={project.github}>View on GitHub</ExternalLink></div>}</article>)}</div>
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">{projects.map(project => <article key={project.title} className={`${card} flex flex-col`}><MetaLine text={project.category} date={project.date} className="font-bold" /><h2 className="text-2xl font-bold my-3">{project.title}</h2><p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-1">{project.problem}</p><p className="text-sm text-gray-500 dark:text-gray-400 mt-4 leading-relaxed">{project.result}</p><div className="flex flex-wrap gap-2 mt-5">{project.technologies.map(tech => <span key={tech} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs px-3 py-1 rounded-full">{tech}</span>)}</div>{project.github && <div className="mt-6"><ExternalLink href={project.github}>View on GitHub</ExternalLink></div>}</article>)}</div>
   </Section>;
 }
 
@@ -286,13 +291,13 @@ export function SkillsSection() {
 
 export function ExperienceSection() {
   return <Section id="experience" title="Experience" subtitle="Applied AI research and engineering across academic and enterprise environments.">
-    <div className="relative max-w-4xl mx-auto"><div className="hidden sm:block absolute left-6 top-0 bottom-0 border-l-4 border-blue-500"/>{experience.map(item => <article key={item.role + item.organization} className="relative sm:pl-16 mb-8"><span className="hidden sm:block absolute left-3 top-7 w-7 h-7 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"/><div className={card}><span className="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">{item.dates}</span><h2 className="text-2xl font-bold mt-4">{item.role}</h2><p className="text-blue-600 dark:text-blue-300 font-semibold mt-1">{item.organization}</p><ul className="list-disc ml-5 mt-4 space-y-2 text-gray-600 dark:text-gray-300">{item.contributions.map(text => <li key={text}>{text}</li>)}</ul>{item.document && <div className="mt-6"><ExternalLink href={item.document.url}>View Experience Letter</ExternalLink></div>}</div></article>)}</div>
+    <div className="relative max-w-4xl mx-auto"><div className="hidden sm:block absolute left-6 top-0 bottom-0 border-l-4 border-blue-500"/>{experience.map(item => <article key={item.role + item.organization} className="relative sm:pl-16 mb-8"><span className="hidden sm:block absolute left-3 top-7 w-7 h-7 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"/><div className={card}><span className="inline-block bg-blue-700 text-white px-4 py-1 rounded-full text-sm font-semibold">{item.dates}</span><h2 className="text-2xl font-bold mt-4">{item.role}</h2><p className="text-blue-600 dark:text-blue-300 font-semibold mt-1">{item.organization}</p><ul className="list-disc ml-5 mt-4 space-y-2 text-gray-600 dark:text-gray-300">{item.contributions.map(text => <li key={text}>{text}</li>)}</ul>{item.document && <div className="mt-6"><ExternalLink href={item.document.url}>View Experience Letter</ExternalLink></div>}</div></article>)}</div>
   </Section>;
 }
 
 export function EducationSection() {
   return <Section id="education" title="Education" subtitle="Academic preparation in computer engineering and data science.">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">{education.map(item => <article key={item.degree} className={`${card} text-center`}><span className="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">{item.dates}</span><h2 className="text-2xl font-bold mt-5">{item.degree}</h2><p className="text-blue-600 dark:text-blue-300 font-semibold mt-3">{item.institution}</p><p className="text-gray-600 dark:text-gray-300 mt-3">{item.detail}</p></article>)}</div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">{education.map(item => <article key={item.degree} className={`${card} text-center`}><span className="inline-block bg-blue-700 text-white px-4 py-1 rounded-full text-sm font-semibold">{item.dates}</span><h2 className="text-2xl font-bold mt-5">{item.degree}</h2><p className="text-blue-600 dark:text-blue-300 font-semibold mt-3">{item.institution}</p><p className="text-gray-600 dark:text-gray-300 mt-3">{item.detail}</p></article>)}</div>
   </Section>;
 }
 
@@ -304,6 +309,6 @@ export function NotFoundSection() {
 
 export function ResumeSection() {
   return <Section id="resume" title="Curriculum Vitae" subtitle="A concise overview of my education, research, engineering experience, and technical work.">
-    <div className={`${card} max-w-3xl mx-auto text-center`}><h2 className="text-2xl font-bold mb-4">Mehmood Ul Haq — Professional CV</h2><p className="text-gray-600 dark:text-gray-300 mb-7">View the CV in your browser or download a copy.</p><div className="flex flex-wrap justify-center gap-3"><ExternalLink href={profile.cv}>View CV</ExternalLink><ExternalLink href={profile.cvDownload} className={outlineButton}>Download CV</ExternalLink></div></div>
+    <div className={`${card} max-w-3xl mx-auto text-center`}><h2 className="text-2xl font-bold mb-4">Mehmood Ul Haq: Professional CV</h2><p className="text-gray-600 dark:text-gray-300 mb-7">View the CV in your browser or download a copy.</p><div className="flex flex-wrap justify-center gap-3"><ExternalLink href={profile.cv}>View CV</ExternalLink><ExternalLink href={profile.cvDownload} className={outlineButton}>Download CV</ExternalLink></div></div>
   </Section>;
 }
