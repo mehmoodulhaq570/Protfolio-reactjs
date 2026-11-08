@@ -1,9 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { OG_IMAGE, SITE_NAME, canonicalUrl, getPage } from "../data/seo";
-// The same files index.css declares in @font-face; Vite gives both the same hashed URL.
-import serifFont from "@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url";
-import sansFont from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 
 // React 19 hoists these tags into <head> and swaps them on every route change.
 const Seo = () => {
@@ -29,9 +26,6 @@ const Seo = () => {
       <meta name="twitter:title" content={page.title} />
       <meta name="twitter:description" content={page.description} />
       <meta name="twitter:image" content={OG_IMAGE.url} />
-      {/* Fetch both fonts with the HTML instead of waiting until the CSS is parsed. */}
-      <link rel="preload" href={serifFont} as="font" type="font/woff2" crossOrigin="" />
-      <link rel="preload" href={sansFont} as="font" type="font/woff2" crossOrigin="" />
     </>
   );
 };
