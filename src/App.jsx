@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/Navigationbar";
+import Footer from "./components/Footer";
 import Seo from "./components/Seo";
 import HomePage from "./components/Home";
 import AboutPage from "./components/About";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="*" element={<NotFoundSection />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   </DarkModeProvider>
 );
