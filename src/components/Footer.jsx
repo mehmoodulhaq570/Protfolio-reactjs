@@ -8,9 +8,9 @@ const links = [
   { label: "Google Scholar", href: profile.scholar },
 ];
 
-// Matches the black navigation bar. Its focus outline colour is set in index.css.
+// Matches the night navigation bar. Its focus outline colour is set in index.css.
 const Footer = () => (
-  <footer className="bg-black text-gray-300 px-4 sm:px-6">
+  <footer className="bg-night text-night-muted border-t border-white/10 px-4 sm:px-6">
     <div className="max-w-7xl mx-auto py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
       {/* The year comes from the build; a page built in one year and opened in
           the next shows the old year until the next deploy, without a hydration warning. */}
@@ -25,7 +25,7 @@ const Footer = () => (
                   href={href}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
-                  className="hover:text-blue-400 active:text-blue-300 transition-colors"
+                  className="hover:text-night-accent active:text-night-ink transition-colors"
                 >
                   {label}
                 </a>

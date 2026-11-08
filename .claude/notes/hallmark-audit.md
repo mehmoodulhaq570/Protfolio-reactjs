@@ -19,19 +19,18 @@ Re-run the audit if the code has changed since the last run.
 - Dead CSS deleted: `src/App.css` and the legacy block in `src/index.css`.
 - PR #6: a real site footer ("© <build year> Mehmood Ul Haq" plus Email, LinkedIn, GitHub and Scholar links), replacing the old `Footer.jsx` that was never rendered. Unused `projects/ProjectCard.jsx` and the starter `logo.svg` deleted.
 
-## Still open
-- **48/74 and 7a, colour tokens:** the raw Tailwind palette and pure #fff everywhere. This is the Restyle work.
-- **54:** two blue meta lines above headings still trip the eyebrow rule: the research category and the community dates. They were left alone because they're data, not decoration.
-- **58:** word count per screen on /about, /experience, /projects and /research. Arguably fine for CV pages, so this is a judgement call.
-- **Layout (redesign territory):**
-  - 6b: the homepage hero is a stack on the centre line.
-  - 9: every page repeats the same title plus card grid.
-  - 77/79: the homepage is a thin column, and the page heads leave about 700px of empty space.
-  - 71: on /skills, headings sit closer to the content above them than to what they head.
-- **Finish:**
-  - /skills leaves one item alone on its last row.
-  - Five solid "View on GitHub" buttons compete on /projects, and cards without a GitHub link leave uneven gaps.
-  - No project screenshots.
+## Done: Restyle (PR #8)
+- Deep teal accent with serif headings, chosen by the owner on 2026-11-08 (from: teal, navy with amber, refined blue; serif or all sans).
+- Colour tokens live as CSS variables (RGB channels) in `src/index.css` for light and `.dark`, mapped in `tailwind.config.js`: paper, surface, soft, ink, muted, faint, line, accent, accent-strong, on-accent, and night-* for the always-dark nav and footer. Every text pair is AA; the tightest is faint on soft at 5.0:1. Components use token classes, so almost no `dark:` variants are left.
+- Fonts are self-hosted, Latin subset only: Source Serif 4 (headings, ~51 KB) and Inter (body, ~48 KB). Layout shift from the font swap is about 0.003.
+- Cards: hairline border, no shadow. Profile and contact icons use one ink colour instead of brand colours, and skill logos use one muted colour.
+- Audit after Restyle: 6 FAIL. That's 5 × 58 word count (a judgement call for CV pages) and 1 × 20 (Hallmark stamp, not applicable). Output is in `.hallmark/restyle.txt`.
 
-## Next step: Restyle, when the owner is ready
-Add colour and type tokens and replace the default blue; the layout stays. Full redesign waits until project screenshots exist. Ask before starting.
+## Still open (layout, redesign territory)
+- 44c/79: page heads end around 200px into a 900px screen, leaving the rest of the first screen to cards or empty space.
+- 6b: the homepage hero is a stack on the centre line. 9: every page repeats the same title plus card grid. 77: the homepage is a thin column.
+- 71: on /skills, headings sit closer to the content above them than to what they head.
+- Finish: /skills leaves one item alone on its last row; "View on GitHub" buttons leave uneven card heights on /projects; no project screenshots.
+
+## Next step
+A layout pass or full redesign, best done once project screenshots exist. Ask before starting.
