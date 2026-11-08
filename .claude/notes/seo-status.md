@@ -21,12 +21,13 @@ Confirmed by the owner: this domain is canonical, the LinkedIn handle `mehmodulh
 - PageSpeed: mobile 99, desktop 100, SEO 100.
 - The full audit is in `portfolio-audit/` (gitignored).
 
-## Still to do (owner actions)
-- In Google Search Console:
-  - submit `sitemap.xml`;
-  - in URL Inspection, request indexing for `/`, `/research` and `/about`.
-- In Bing Webmaster Tools, choose **Import from Google Search Console**.
-- Add the site URL to the website field on LinkedIn, Google Scholar, Kaggle, Medium, DEV, Credly and Lightning. This is the biggest remaining SEO gap: the site has no inbound links.
+## Owner actions (done 2026-11-08, reported by the owner)
+- Google Search Console: `sitemap.xml` submitted; indexing requested for `/`, `/research` and `/about`.
+- Bing Webmaster Tools: imported from Google Search Console.
+- Site URL added to LinkedIn, Google Scholar, Kaggle, Medium, DEV, Credly and Lightning, so the site now has inbound links from those profiles.
+
+## Follow-up
+- Around 2026-11-22: check the Search Console **Pages** report for what got indexed, and look into anything marked "Discovered – not indexed" or "Crawled – not indexed".
 
 ## Ideas not started
 - An HTML CV on `/resume`, with the PDF hosted on the site.
