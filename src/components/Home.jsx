@@ -66,9 +66,6 @@ const Home = () => {
           />
         </div>
 
-        <p className="mb-2 text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">
-          AI · Data Science · Engineering
-        </p>
         <h1 className="whitespace-nowrap text-2xl sm:text-5xl font-bold leading-tight">
           Engr. {profile.name}
         </h1>
@@ -77,7 +74,7 @@ const Home = () => {
         <p className="mt-3 min-h-9 text-lg sm:text-2xl" aria-hidden="true">
           <span className="font-normal">I&apos;m {roles[roleIndex].startsWith("AI") ? "an" : "a"} </span>
           <span className="font-bold text-blue-600 dark:text-blue-400">{currentText}</span>
-          <span className="ml-1 text-blue-600 dark:text-blue-400 animate-pulse">|</span>
+          <span className="ml-1 text-blue-600 dark:text-blue-400 motion-safe:animate-pulse">|</span>
         </p>
 
         <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300">
@@ -87,7 +84,7 @@ const Home = () => {
         <div className="mt-6 flex w-full sm:w-auto flex-col sm:flex-row justify-center gap-3">
           <Link
             to="/research"
-            className="inline-flex items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors"
+            className="inline-flex items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors"
           >
             View Research
           </Link>
@@ -95,7 +92,7 @@ const Home = () => {
             href={profile.cvDownload}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-blue-500 px-5 py-2.5 text-sm font-semibold text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-blue-500 px-5 py-2.5 text-sm font-semibold text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-800 active:bg-blue-100 dark:active:bg-gray-700 transition-colors"
           >
             <FaDownload aria-hidden="true" /> Download CV
           </a>
@@ -110,7 +107,7 @@ const Home = () => {
               rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
               aria-label={label}
               title={label}
-              className={`${style} inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full text-white shadow transition-colors`}
+              className={`${style} inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full text-white shadow active:brightness-90 transition-colors`}
             >
               <Icon className="text-xl sm:text-2xl" aria-hidden="true" />
             </a>
