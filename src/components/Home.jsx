@@ -45,16 +45,16 @@ const Home = () => {
   }, [currentText, isRemoving, roleIndex]);
 
   const socialLinks = [
-    { label: "LinkedIn", href: profile.linkedin, icon: FaLinkedin },
-    { label: "GitHub", href: profile.github, icon: FaGithub },
-    { label: "Google Scholar", href: profile.scholar, icon: FaGraduationCap },
-    { label: "Email", href: `mailto:${profile.email}`, icon: FaEnvelope },
+    { label: "LinkedIn", href: profile.linkedin, icon: FaLinkedin, style: "bg-blue-600 hover:bg-blue-500" },
+    { label: "GitHub", href: profile.github, icon: FaGithub, style: "bg-gray-700 hover:bg-gray-600" },
+    { label: "Google Scholar", href: profile.scholar, icon: FaGraduationCap, style: "bg-blue-500 hover:bg-blue-400" },
+    { label: "Email", href: `mailto:${profile.email}`, icon: FaEnvelope, style: "bg-red-500 hover:bg-red-400" },
   ];
 
   return (
-    <main className="min-h-[calc(100vh-4rem)] bg-paper text-ink px-4 sm:px-8 py-10">
+    <main className="min-h-[calc(100vh-4rem)] bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-4 sm:px-8 py-10">
       <div className="max-w-4xl mx-auto flex min-h-[calc(100vh-9rem)] flex-col items-center justify-center text-center">
-        <div className="mb-5 rounded-full border-2 border-accent p-1">
+        <div className="mb-5 rounded-full border-2 border-blue-500 shadow-md">
           <img
             src="/images/mehmood-ul-haq-360.webp"
             alt="Mehmood Ul Haq"
@@ -66,25 +66,25 @@ const Home = () => {
           />
         </div>
 
-        <h1 className="whitespace-nowrap text-2xl sm:text-5xl font-semibold leading-tight">
+        <h1 className="whitespace-nowrap text-2xl sm:text-5xl font-bold leading-tight">
           Engr. {profile.name}
         </h1>
         {/* The full role list is real text for crawlers and screen readers; the typing effect is decorative. */}
         <p className="sr-only">I&apos;m an AI Engineer, Data Scientist and AI/ML Researcher.</p>
         <p className="mt-3 min-h-9 text-lg sm:text-2xl" aria-hidden="true">
           <span className="font-normal">I&apos;m {roles[roleIndex].startsWith("AI") ? "an" : "a"} </span>
-          <span className="font-semibold text-accent">{currentText}</span>
-          <span className="ml-1 text-accent motion-safe:animate-pulse">|</span>
+          <span className="font-bold text-blue-600 dark:text-blue-400">{currentText}</span>
+          <span className="ml-1 text-blue-600 dark:text-blue-400 motion-safe:animate-pulse">|</span>
         </p>
 
-        <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-muted">
+        <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-300">
           {profile.positioning}
         </p>
 
         <div className="mt-6 flex w-full sm:w-auto flex-col sm:flex-row justify-center gap-3">
           <Link
             to="/research"
-            className="inline-flex items-center justify-center rounded-lg bg-accent hover:bg-accent-strong active:translate-y-px px-5 py-2.5 text-sm font-semibold text-on-accent transition-colors"
+            className="inline-flex items-center justify-center rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors"
           >
             View Research
           </Link>
@@ -92,14 +92,14 @@ const Home = () => {
             href={profile.cvDownload}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-accent px-5 py-2.5 text-sm font-semibold text-accent hover:bg-soft active:translate-y-px transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-blue-500 px-5 py-2.5 text-sm font-semibold text-blue-600 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-gray-800 active:bg-blue-100 dark:active:bg-gray-700 transition-colors"
           >
             <FaDownload aria-hidden="true" /> Download CV
           </a>
         </div>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3" aria-label="Professional profiles">
-          {socialLinks.map(({ label, href, icon: Icon }) => (
+          {socialLinks.map(({ label, href, icon: Icon, style }) => (
             <a
               key={label}
               href={href}
@@ -107,7 +107,7 @@ const Home = () => {
               rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
               aria-label={label}
               title={label}
-              className="inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-ink text-paper hover:bg-accent hover:text-on-accent active:translate-y-px transition-colors"
+              className={`${style} inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full text-white shadow active:brightness-90 transition-colors`}
             >
               <Icon className="text-xl sm:text-2xl" aria-hidden="true" />
             </a>

@@ -19,14 +19,23 @@ Re-run the audit if the code has changed since the last run.
 - Dead CSS deleted: `src/App.css` and the legacy block in `src/index.css`.
 - PR #6: a real site footer ("© <build year> Mehmood Ul Haq" plus Email, LinkedIn, GitHub and Scholar links), replacing the old `Footer.jsx` that was never rendered. Unused `projects/ProjectCard.jsx` and the starter `logo.svg` deleted.
 
-## Done: Restyle (PR #8)
-- Deep teal accent with serif headings, chosen by the owner on 2026-11-08 (from: teal, navy with amber, refined blue; serif or all sans).
-- Colour tokens live as CSS variables (RGB channels) in `src/index.css` for light and `.dark`, mapped in `tailwind.config.js`: paper, surface, soft, ink, muted, faint, line, accent, accent-strong, on-accent, and night-* for the always-dark nav and footer. Every text pair is AA; the tightest is faint on soft at 5.0:1. Components use token classes, so almost no `dark:` variants are left.
-- Fonts are self-hosted, Latin subset only: Source Serif 4 (headings, ~51 KB) and Inter (body, ~48 KB). Layout shift from the font swap is about 0.003.
-- Cards: hairline border, no shadow. Profile and contact icons use one ink colour instead of brand colours, and skill logos use one muted colour.
-- Audit after Restyle: 6 FAIL. That's 5 × 58 word count (a judgement call for CV pages) and 1 × 20 (Hallmark stamp, not applicable). Output is in `.hallmark/restyle.txt`.
+## Done: serif headings (PR #8)
+- The owner tried a full teal restyle (colour tokens, teal accent, serif headings) on 2026-11-08. They liked the font and **want the original colours kept: the blue accent, white and gray-900 backgrounds, black nav, brand-coloured icons. Don't propose a colour change again.**
+- What shipped: headings (h1–h3) in Source Serif 4, self-hosted. It's one static semibold file, Latin subset, 21.5 KB, with `font-weight: 400 700` so every heading weight uses that cut without a faked bold. Body text stays on the system sans.
+- Performance notes from the experiment, measured with local Lighthouse mobile against a local build of `main`:
+  - Variable Source Serif plus Inter (about 99 KB) cost about 10 points: first paint +0.45 s, LCP +0.5 s.
+  - Preloading the fonts made it worse, because the homepage LCP element is the portrait image and the fonts competed with it for bandwidth.
+  - The single static file costs about 0.2 s of LCP, which is within noise.
+- Netlify deploy previews inject a toolbar iframe (about 300 KB of scripts from app.netlify.com), so Lighthouse on a preview isn't comparable with production. Compare local builds instead.
 
-## Still open (layout, redesign territory)
+## Still open
+- **48/74 and 7a, colour tokens:** the raw Tailwind palette and pure #fff. **The owner wants these colours, so leave them.**
+- **Layout (redesign territory):**
+  - 44c/79: page heads end around 200px into a 900px screen.
+  - 6b: the homepage hero is a stack on the centre line.
+  - 9: every page repeats the same title plus card grid.
+  - 77: the homepage is a thin column.
+  - 71: on /skills, headings sit closer to the content above them than to what they head.
 - 44c/79: page heads end around 200px into a 900px screen, leaving the rest of the first screen to cards or empty space.
 - 6b: the homepage hero is a stack on the centre line. 9: every page repeats the same title plus card grid. 77: the homepage is a thin column.
 - 71: on /skills, headings sit closer to the content above them than to what they head.

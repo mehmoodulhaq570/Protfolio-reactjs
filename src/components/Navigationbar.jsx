@@ -30,11 +30,11 @@ const NavigationBar = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-10 px-4 sm:px-6 py-3 bg-night text-night-ink border-b border-white/10">
+    <header className="fixed top-0 w-full z-10 px-4 sm:px-6 py-3 bg-black text-white shadow-lg">
       <div className="relative flex justify-between items-center max-w-7xl mx-auto gap-3">
         {/* Navigation Links */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="xl:hidden border border-white/20 rounded px-3 py-2 font-semibold active:bg-white/10" aria-expanded={menuOpen} aria-controls="portfolio-nav">{menuOpen ? "Close" : "Menu"}</button>
-        <nav id="portfolio-nav" className={`${menuOpen ? "flex" : "hidden"} absolute xl:static top-full left-0 right-0 mt-3 xl:mt-0 bg-night xl:bg-transparent px-4 xl:px-0 py-3 xl:py-0 border-b border-white/10 xl:border-0 xl:flex flex-col xl:flex-row items-start xl:items-center gap-1 xl:gap-5 text-sm font-semibold`}>
+        <button onClick={() => setMenuOpen(!menuOpen)} className="xl:hidden border border-gray-600 rounded px-3 py-2 font-semibold active:bg-gray-800" aria-expanded={menuOpen} aria-controls="portfolio-nav">{menuOpen ? "Close" : "Menu"}</button>
+        <nav id="portfolio-nav" className={`${menuOpen ? "flex" : "hidden"} absolute xl:static top-full left-0 right-0 mt-3 xl:mt-0 bg-black xl:bg-transparent px-4 xl:px-0 py-3 xl:py-0 shadow-lg xl:shadow-none xl:flex flex-col xl:flex-row items-start xl:items-center gap-1 xl:gap-5 text-sm font-semibold`}>
           {links.map((link) => (
             <Link
               key={link.name}
@@ -45,9 +45,9 @@ const NavigationBar = () => {
               }}
               className={`${
                 location.pathname === link.path
-                  ? "border-b-2 border-night-accent"
+                  ? "border-b-2 border-blue-500"
                   : ""
-              } hover:text-night-accent active:text-night-muted transition-colors duration-300 py-2 xl:py-1 w-full xl:w-auto`}
+              } hover:text-blue-500 active:text-blue-400 transition-colors duration-300 py-2 xl:py-1 w-full xl:w-auto`}
             >
               {link.name}
             </Link>
@@ -58,9 +58,9 @@ const NavigationBar = () => {
               onClick={() => setExploreOpen((open) => !open)}
               className={`${
                 exploreLinks.some((link) => location.pathname === link.path)
-                  ? "border-b-2 border-night-accent"
+                  ? "border-b-2 border-blue-500"
                   : ""
-              } flex items-center justify-between xl:justify-start gap-2 hover:text-night-accent active:text-night-muted transition-colors py-2 xl:py-1 w-full xl:w-auto`}
+              } flex items-center justify-between xl:justify-start gap-2 hover:text-blue-500 active:text-blue-400 transition-colors py-2 xl:py-1 w-full xl:w-auto`}
               aria-expanded={exploreOpen}
               aria-controls="explore-more-menu"
             >
@@ -69,7 +69,7 @@ const NavigationBar = () => {
             </button>
             <div
               id="explore-more-menu"
-              className={`${exploreOpen ? "flex" : "hidden"} xl:absolute xl:right-0 xl:top-full mt-1 xl:mt-3 min-w-52 flex-col rounded-lg border border-white/10 bg-night p-2`}
+              className={`${exploreOpen ? "flex" : "hidden"} xl:absolute xl:right-0 xl:top-full mt-1 xl:mt-3 min-w-52 flex-col rounded-lg border border-gray-700 bg-black p-2 shadow-xl`}
             >
               {exploreLinks.map((link) => (
                 <Link
@@ -79,7 +79,7 @@ const NavigationBar = () => {
                     setExploreOpen(false);
                     setMenuOpen(false);
                   }}
-                  className={`${location.pathname === link.path ? "bg-white/10 text-night-accent" : "hover:bg-white/5 hover:text-night-accent active:bg-white/10"} rounded-md px-4 py-2.5 whitespace-nowrap transition-colors`}
+                  className={`${location.pathname === link.path ? "bg-blue-600 text-white" : "hover:bg-gray-800 hover:text-blue-400 active:bg-gray-700"} rounded-md px-4 py-2.5 whitespace-nowrap transition-colors`}
                 >
                   {link.name}
                 </Link>
@@ -96,16 +96,16 @@ const NavigationBar = () => {
             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             aria-pressed={darkMode}
             // Visual state follows the `dark` class on <html>, so the prerendered toggle never flashes.
-            className="relative flex items-center justify-between bg-white/10 ring-1 ring-white/20 rounded-full w-16 h-7 p-1 cursor-pointer active:bg-white/20"
+            className="relative flex items-center justify-between bg-gradient-to-r from-yellow-300 to-yellow-500 dark:from-blue-900 dark:to-gray-700 rounded-full w-16 h-7 p-1 transition-colors duration-500 cursor-pointer active:brightness-90"
           >
             {/* Circle Button */}
-            <div className="w-6 h-6 bg-night-ink rounded-full transition-transform duration-300 translate-x-0 dark:translate-x-8" />
+            <div className="w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 translate-x-0 dark:translate-x-8" />
 
             {/* Sun and Moon Icons */}
-            <div className="absolute left-1 flex items-center space-x-2 text-amber-300 opacity-100 transition-opacity duration-300">
+            <div className="absolute left-1 flex items-center space-x-2 text-yellow-500 opacity-100 transition-opacity duration-300">
               <FaSun size={16} />
             </div>
-            <div className="absolute right-1 flex items-center space-x-2 text-night-accent opacity-100 transition-opacity duration-300">
+            <div className="absolute right-1 flex items-center space-x-2 text-blue-500 opacity-100 transition-opacity duration-300">
               <FaMoon size={16} />
             </div>
           </button>

@@ -2,59 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Self-hosted fonts, Latin subset only (it covers every character on the site),
-   so a visit downloads two files: about 51 KB serif and 48 KB sans. */
+/* Heading font: Source Serif 4 semibold, self-hosted, Latin subset (21.5 KB, one file).
+   Body text stays on the system sans below. The weight range maps every heading weight
+   (font-semibold, font-bold) to this one cut, so the browser never fakes a bold. */
 @font-face {
-  font-family: "Source Serif 4 Variable";
+  font-family: "Source Serif 4";
   font-style: normal;
   font-display: swap;
-  font-weight: 200 900;
-  src: url("../node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 400 700;
+  src: url("../node_modules/@fontsource/source-serif-4/files/source-serif-4-latin-600-normal.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face {
-  font-family: "Inter Variable";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Colour tokens as RGB channels, used through tailwind.config.js (bg-paper, text-accent, ...).
-   Every text pair is WCAG AA or better in both themes; the tightest is faint on soft (5.0:1). */
-:root {
-  --paper: 248 247 243; /* #f8f7f3 */
-  --surface: 255 254 251; /* #fffefb */
-  --soft: 228 239 236; /* #e4efec */
-  --ink: 22 32 30; /* #16201e  15.6:1 on paper */
-  --muted: 74 86 83; /* #4a5653   7.1:1 */
-  --faint: 91 103 100; /* #5b6764   5.5:1 */
-  --line: 222 219 210; /* #dedbd2 */
-  --accent: 15 107 99; /* #0f6b63   5.9:1 */
-  --accent-strong: 10 79 73; /* #0a4f49   8.8:1 */
-  --on-accent: 255 254 251; /* #fffefb   6.3:1 on accent */
-  /* The nav and footer stay dark in both themes, so these are not redefined under .dark. */
-  --night: 11 18 17; /* #0b1211 */
-  --night-ink: 231 237 235; /* #e7edeb  16.0:1 on night */
-  --night-muted: 179 192 188; /* #b3c0bc  10.1:1 */
-  --night-accent: 92 202 185; /* #5ccab9   9.6:1 */
-  color-scheme: light;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-.dark {
-  --paper: 14 21 20; /* #0e1514 */
-  --surface: 21 32 32; /* #152020 */
-  --soft: 24 48 45; /* #18302d */
-  --ink: 231 237 235; /* #e7edeb  15.6:1 on paper */
-  --muted: 179 192 188; /* #b3c0bc   9.8:1 */
-  --faint: 151 166 162; /* #97a6a2   7.3:1 */
-  --line: 42 55 53; /* #2a3735 */
-  --accent: 92 202 185; /* #5ccab9   9.3:1 */
-  --accent-strong: 143 223 210; /* #8fdfd2  12.0:1 */
-  --on-accent: 14 21 20; /* #0e1514   9.3:1 on accent */
-  color-scheme: dark;
+html.dark body {
+  background: #111827;
+  color: #ffffff;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] #root {
+  background: #111827;
+  color: #ffffff;
+}
+
+html[data-theme="light"],
+html[data-theme="light"] #root {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Route-wide theme fallback. These selectors use the value managed by
+   DarkModeProvider, so every portfolio route updates with the toggle. */
+html[data-theme="dark"] .portfolio-page {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .portfolio-card {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+html[data-theme="light"] .portfolio-page {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+html[data-theme="light"] .portfolio-card {
+  background-color: #ffffff;
+  color: #111827;
 }
 
 /* Clip, not hidden: hidden turns these into scroll containers and breaks sticky. */
@@ -66,32 +78,24 @@ body,
 }
 
 @layer base {
-  html {
-    background-color: rgb(var(--paper));
-    color: rgb(var(--ink));
-  }
-
-  body {
-    margin: 0;
-    min-height: 100vh;
-    @apply font-sans antialiased;
-  }
-
   h1,
   h2,
   h3 {
-    @apply font-serif;
+    font-family: "Source Serif 4", Georgia, Cambria, serif;
     text-wrap: balance;
   }
 
-  /* Keyboard focus, at least 3:1 against what it sits on: the accent on pages
-     (5.9:1 light, 9.3:1 dark) and the night accent on the nav and footer (9.6:1). */
+  /* Keyboard focus. Each colour is at least 3:1 against the surface it sits on:
+     blue-700 on light pages (6.7:1), blue-400 on dark pages (7.0:1) and on the
+     always-black nav and footer (8.3:1). */
   :focus-visible {
-    outline: 2px solid rgb(var(--accent));
+    outline: 2px solid #1d4ed8;
     outline-offset: 3px;
   }
 
-  .bg-night :focus-visible {
-    outline-color: rgb(var(--night-accent));
+  .dark :focus-visible,
+  header :focus-visible,
+  footer :focus-visible {
+    outline-color: #60a5fa;
   }
 }

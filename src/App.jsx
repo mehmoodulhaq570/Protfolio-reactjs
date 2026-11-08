@@ -16,7 +16,7 @@ import { DarkModeProvider } from "./context/DarkModeProvider";
 // The router is supplied by the caller: BrowserRouter in main.jsx, StaticRouter in entry-server.jsx.
 const App = () => (
   <DarkModeProvider>
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
       <Seo />
       <NavigationBar />
 
