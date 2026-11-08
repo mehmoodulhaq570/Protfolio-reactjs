@@ -15,10 +15,18 @@ Confirmed by the owner: this domain is canonical, the LinkedIn handle `mehmodulh
   - A homepage intro paragraph was added and then removed at the owner's request. **They don't want it, so don't propose it again.**
 - **PR #3, gsc-verification**: `public/google91dddc4b0485351d.html`. **It must stay forever.** Google Search Console was verified on 2026-11-08.
 - **GitHub repo**: the homepage field is set to the site URL.
+- **Later PRs (design, not SEO), all merged 2026-11-08:**
+  - #4: project notes.
+  - #5: Polish (accessibility and CSS fixes).
+  - #6: footer and cleanup.
+  - #7: notes.
+  - #8: serif heading font.
+
+  None of them changed metadata, routes or the sitemap. Details are in `hallmark-audit.md`.
 
 ## Scores
 - SEO audit: 46/100 at baseline (local), 81/100 live.
-- PageSpeed: mobile 99, desktop 100, SEO 100.
+- PageSpeed: mobile 99, desktop 100, SEO 100. This was measured before the heading font (PR #8); local Lighthouse showed only a small difference. Re-check the live score once the API quota allows.
 - The full audit is in `portfolio-audit/` (gitignored).
 
 ## Owner actions (done 2026-11-08, reported by the owner)
