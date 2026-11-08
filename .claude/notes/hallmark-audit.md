@@ -17,7 +17,7 @@ Re-run the audit if the code has changed since the last run.
 - Uppercase eyebrow labels removed (54/67), dates in their own column instead of middle dots (63), em dash removed from the CV title (19).
 - Cards: shadow in light mode, border in dark mode.
 - Dead CSS deleted: `src/App.css` and the legacy block in `src/index.css`.
-- Unused files deleted (PR #6): `Footer.jsx` (never rendered, so its "All rights reserved" line was never on the site), `projects/ProjectCard.jsx` and the starter `logo.svg`.
+- PR #6: a real site footer ("© <build year> Mehmood Ul Haq" plus Email, LinkedIn, GitHub and Scholar links), replacing the old `Footer.jsx` that was never rendered. Unused `projects/ProjectCard.jsx` and the starter `logo.svg` deleted.
 
 ## Still open
 - **48/74 and 7a, colour tokens:** the raw Tailwind palette and pure #fff everywhere. This is the Restyle work.

@@ -74,14 +74,15 @@ body,
 
   /* Keyboard focus. Each colour is at least 3:1 against the surface it sits on:
      blue-700 on light pages (6.7:1), blue-400 on dark pages (7.0:1) and on the
-     always-black nav (8.3:1). */
+     always-black nav and footer (8.3:1). */
   :focus-visible {
     outline: 2px solid #1d4ed8;
     outline-offset: 3px;
   }
 
   .dark :focus-visible,
-  header :focus-visible {
+  header :focus-visible,
+  footer :focus-visible {
     outline-color: #60a5fa;
   }
 }
