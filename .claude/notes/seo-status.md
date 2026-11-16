@@ -1,4 +1,4 @@
-# SEO status (as of 2026-11-08)
+# SEO status (as of 2026-11-16)
 
 Production site: https://mehmoodulhaq570.netlify.app (Netlify, repo mehmoodulhaq570/Protfolio-reactjs, branch `main`).
 Confirmed by the owner: this domain is canonical, the LinkedIn handle `mehmodulhaq570` is correct, and there is no ORCID.
@@ -23,6 +23,12 @@ Confirmed by the owner: this domain is canonical, the LinkedIn handle `mehmodulh
   - #8: serif heading font.
 
   None of them changed metadata, routes or the sitemap. Details are in `hallmark-audit.md`.
+- **PR #9, docs-update** (merged 2026-11-08): README rewritten in a standard format.
+- **PR #10, favicon-icons** (merged 2026-11-16)
+  - `favicon.ico`, `logo192.png` and `logo512.png` were still the Create React App React-atom defaults, so iOS, Android installs and Google results showed the React logo. They are now generated from the `favicon.svg` design (blue `#2563eb` square with a Georgia "M").
+  - Added a full-bleed `apple-touch-icon.png` (180×180), because iOS rounds corners itself and fills transparency with black. `index.html` uses it, with `favicon.ico` as a `sizes="any"` fallback ahead of the SVG.
+  - The manifest `theme_color` is now `#2563eb`. The `<meta name="theme-color">` in `index.html` is still `#000000`.
+  - Google caches favicons, so its results may show the old icon for days or weeks.
 
 ## Scores
 - SEO audit: 46/100 at baseline (local), 81/100 live.
@@ -35,7 +41,7 @@ Confirmed by the owner: this domain is canonical, the LinkedIn handle `mehmodulh
 - Site URL added to LinkedIn, Google Scholar, Kaggle, Medium, DEV, Credly and Lightning, so the site now has inbound links from those profiles.
 
 ## Follow-up
-- Around 2026-11-22: check the Search Console **Pages** report for what got indexed, and look into anything marked "Discovered – not indexed" or "Crawled – not indexed".
+- Around 2026-11-22: check the Search Console **Pages** report for what got indexed, and look into anything marked "Discovered – not indexed" or "Crawled – not indexed". Also check that Google's result shows the "M" icon, not the React logo.
 
 ## Ideas not started
 - An HTML CV on `/resume`, with the PDF hosted on the site.
