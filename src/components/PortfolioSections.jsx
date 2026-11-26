@@ -232,8 +232,8 @@ export function AboutSection() {
   return <Section id="about" title="About Me" subtitle="Computer engineer, data scientist, and AI researcher building practical intelligent systems.">
     <div className="-mt-5 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
       <div className="lg:col-span-2 space-y-5 text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-        <p>I am an M.S. Data Science student at UET Lahore and an AI Engineering Officer at NESPAK. I develop intelligent recruitment workflows using NLP-based CV analysis, candidate matching, and enterprise HR integration.</p>
-        <p>Previously, I worked as an AI Research Engineer and Data Scientist at the Data Science Lab, KICS, where I built data pipelines, forecasting models, and predictive analytics systems while contributing to research with DFKI Germany.</p>
+        <p>I am an M.S. Data Science student at UET Lahore and an AI Research Engineer at 14Labs Research and Technology, where I work on applied machine learning for agriculture, energy and climate, including crop-yield forecasting for Pakistani farming.</p>
+        <p>Before that, I was an AI Engineering Officer at NESPAK, building NLP-based recruitment workflows, and an AI Research Engineer and Data Scientist at the Data Science Lab, KICS, where I built data pipelines, forecasting models, and predictive analytics systems while contributing to research with DFKI Germany.</p>
         <p>My work connects machine learning with energy forecasting, explainable engineering models, computer vision, recommendation systems, and generative AI.</p>
         <div className="flex flex-wrap gap-3 pt-3"><Link to="/experience" className={button}>View Experience</Link><Link to="/research" className={outlineButton}>Explore Research</Link></div>
         <aside className="flex flex-col sm:flex-row sm:items-center gap-4 rounded-r-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-gray-800 p-4 sm:p-5" aria-labelledby="beyond-engineering-title">

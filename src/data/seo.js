@@ -7,11 +7,11 @@ export const OG_IMAGE = { url: `${SITE_URL}/og-image.png`, width: 1200, height: 
 
 // One entry per indexable route. Titles stay at or under 60 characters, descriptions at or under 155.
 export const pages = [
-  { path: '/', type: 'profile', title: 'Mehmood Ul Haq | AI Engineer & ML Researcher, Lahore', description: 'AI Engineering Officer at NESPAK and M.S. Data Science student at UET Lahore, researching solar forecasting, explainable AI and computer vision.' },
+  { path: '/', type: 'profile', title: 'Mehmood Ul Haq | AI Engineer & ML Researcher, Lahore', description: 'AI Research Engineer at 14Labs and M.S. Data Science student at UET Lahore, researching crop-yield and solar forecasting, explainable AI and computer vision.' },
   { path: '/about', type: 'profile', title: 'About Mehmood Ul Haq | Computer Engineer & Data Scientist', description: 'Computer engineer and data scientist from UET Lahore building practical AI for energy forecasting, engineering prediction and enterprise HR systems.' },
   { path: '/research', title: 'Research & Publications | Mehmood Ul Haq', description: 'Peer-reviewed research on ML-based fatigue-life prediction of AM Ti-6Al-4V, solar irradiance forecasting and explainable engineering AI.' },
   { path: '/projects', title: 'AI & Machine Learning Projects | Mehmood Ul Haq', description: 'SeoulMate hybrid recommender, Smart Datalyzer, a YOLOv11 fire-suppression system, energy demand forecasting and Explainable AutoML.' },
-  { path: '/experience', title: 'Experience: NESPAK & KICS UET Lahore | Mehmood Ul Haq', description: 'AI Engineering Officer at NESPAK; formerly AI Research Engineer at the Data Science Lab, KICS, UET Lahore, contributing to research with DFKI Germany.' },
+  { path: '/experience', title: 'Experience: 14Labs, NESPAK & KICS | Mehmood Ul Haq', description: 'AI Research Engineer at 14Labs, working on machine learning for agriculture; formerly at NESPAK and AI Research Engineer at the Data Science Lab, KICS, UET Lahore, contributing to research with DFKI Germany.' },
   { path: '/education', title: 'Education: UET Lahore | Mehmood Ul Haq', description: 'M.S. Data Science (in progress) and B.Sc. Computer Engineering at the University of Engineering and Technology, Lahore, Pakistan.' },
   { path: '/skills', title: 'Technical Skills: Python, PyTorch, RAG | Mehmood Ul Haq', description: 'Languages, ML frameworks and tools: Python, PyTorch, TensorFlow, Scikit-learn, LangChain, FAISS, FastAPI, React, AWS and more.' },
   { path: '/certifications', title: 'Certifications & Training | Mehmood Ul Haq', description: 'Professional credentials from DeepLearning.AI, DataCamp, IBM, AWS and ACM UET Lahore, with a link to each certificate.' },
@@ -41,12 +41,12 @@ const person = {
   url: `${SITE_URL}/`,
   image: `${SITE_URL}/images/mehmood-ul-haq-600.webp`,
   email: `mailto:${profile.email}`,
-  jobTitle: 'AI Engineering Officer',
+  jobTitle: 'AI Research Engineer',
   description: 'AI engineer and machine-learning researcher working on solar-energy forecasting, explainable engineering AI and computer vision.',
-  worksFor: { '@type': 'Organization', name: 'NESPAK', alternateName: 'National Engineering Services Pakistan' },
+  worksFor: { '@type': 'Organization', name: '14Labs Research and Technology', url: 'https://14labs.co' },
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Engineering and Technology, Lahore' },
   address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressRegion: 'Punjab', addressCountry: 'PK' },
-  knowsAbout: ['Machine learning', 'Deep learning', 'Time-series forecasting', 'Solar irradiance forecasting', 'Explainable AI', 'SHAP', 'Computer vision', 'Natural language processing', 'Retrieval-augmented generation'],
+  knowsAbout: ['Machine learning', 'Deep learning', 'Time-series forecasting', 'Crop-yield forecasting', 'Solar irradiance forecasting', 'Explainable AI', 'SHAP', 'Computer vision', 'Natural language processing', 'Retrieval-augmented generation'],
   sameAs: [profile.linkedin, profile.github, profile.scholar, profile.kaggle, profile.medium, profile.devTo, profile.credly, profile.lightningAi],
 };
 
